@@ -1,6 +1,10 @@
 import { Technologies } from "@/components/technologies";
 
 export default function Projects() {
+	// since this page is rendered on the server, we can fetch data directly here
+	// and pass it to a component as props
+	// essentially, this is where i'll fetch projects from supabase
+
 	return (
 		<div className="flex w-full max-w-4xl flex-col gap-20">
 			<section className="flex flex-col gap-12">
@@ -15,7 +19,7 @@ export default function Projects() {
 			</section>
 			<section className="flex flex-col gap-12">
 				<h2 className="text-4xl font-semibold font-header">
-					Here&apos;s some of the things I&apos;ve built so far:
+					Here are some of the things I&apos;ve built so far:
 				</h2>
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 					<div className="bg-foreground/10 p-4 rounded-lg">
