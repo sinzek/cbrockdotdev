@@ -18,9 +18,9 @@ This site is where I showcase my projects, write about what I'm learning, and mo
 
 ## 📁 Features
 
--   🖼️ **Project Gallery** – Browse highlights of my work, with code breakdowns and interactive showcases.
--   📓 **Blog** – Posts about development, design challenges, and behind-the-scenes insights.
--   📱 **Fully Responsive** – Optimized for mobile, tablet, and desktop devices.
+-   🖼️ **Project Gallery** - Browse highlights of my work, with code breakdowns and interactive showcases.
+-   📓 **Blog** - Posts about development, design challenges, and behind-the-scenes insights.
+-   📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop devices.
 
 ---
 
