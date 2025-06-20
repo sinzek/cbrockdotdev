@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { links } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import {
@@ -63,16 +64,21 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-row max-w-lg flex-wrap items-center justify-start gap-3 mt-6">
+				<div className="flex flex-row max-w-lg flex-wrap items-center justify-start gap-2 mt-6">
 					{links.map((link) => {
 						const Icon = link.icon;
 						return (
-							<Link href={link.href} key={`nav-${link.name}`}>
-								<div
-									className={cn(
-										"group px-3 py py-1 rounded-full bg-transparent border flex flex-row font-sans text-sm font-light items-center gap-1 text-foreground hover:text-red border-foreground/25 hover:border-red hover:bg-red/25"
-									)}
-								>
+							<Link
+								href={link.href}
+								key={`nav-${link.name}`}
+								target={link.externalLink ? "_blank" : "_self"}
+								rel={
+									link.externalLink
+										? "noopener noreferrer"
+										: undefined
+								}
+							>
+								<Button>
 									<Icon
 										weight={"fill"}
 										size={20}
@@ -91,7 +97,7 @@ export default function Home() {
 											className="inline ml-1"
 										/>
 									)}
-								</div>
+								</Button>
 							</Link>
 						);
 					})}

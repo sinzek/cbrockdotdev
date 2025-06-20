@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+// super duper simple basic auth middleware for me :3
 export function middleware(request: NextRequest) {
 	const basicAuth = request.headers.get("authorization");
 
@@ -7,7 +8,10 @@ export function middleware(request: NextRequest) {
 		const authValue = basicAuth.split(" ")[1];
 		const [user, pwd] = atob(authValue).split(":");
 
-		if (user === "sinzek" && pwd === process.env.CHASE_PIN) {
+		if (
+			user === process.env.CHASE_USERNAME &&
+			pwd === process.env.CHASE_PIN
+		) {
 			return NextResponse.next();
 		}
 	}
