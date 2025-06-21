@@ -5,11 +5,13 @@ import { technologies } from "@/lib/constants";
 interface TechnologiesSelectorProps {
 	selectedTechnologies: string[];
 	setSelectedTechnologies: (technologies: string[]) => void;
+	disabled?: boolean;
 }
 
 export function TechnologiesSelector({
 	selectedTechnologies,
 	setSelectedTechnologies,
+	disabled = false,
 }: TechnologiesSelectorProps) {
 	const [open, setOpen] = React.useState(false);
 
@@ -34,6 +36,7 @@ export function TechnologiesSelector({
 			onSelect={handleSelect}
 			onDeselect={handleDeselect}
 			placeholder={"Technologies used to create the project"}
+			disabled={disabled}
 		/>
 	);
 }

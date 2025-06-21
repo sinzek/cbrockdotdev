@@ -9,10 +9,18 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FolderOpenIcon, PlusIcon, XIcon } from "@phosphor-icons/react";
+import {
+	CheckIcon,
+	CircleNotchIcon,
+	FolderOpenIcon,
+	PlusIcon,
+	XIcon,
+} from "@phosphor-icons/react";
 import React from "react";
 import { TechnologiesSelector } from "./technologiesSelector";
 import Image from "next/image";
+import { toast } from "sonner";
+import { ProjectType } from "@/lib/types";
 
 interface NewProjectProps {
 	open: boolean;
@@ -22,14 +30,124 @@ interface NewProjectProps {
 export function NewProject({ open, onOpenChange }: NewProjectProps) {
 	const [formData, setFormData] = React.useState({
 		title: "",
-		description: "",
+		description: null as string | null,
 		slug: "",
 		technologies: [] as string[],
 		photos: [] as string[],
-		link: "",
+		link: null as string | null,
 		blogPosts: "",
-		launchDate: new Date(),
+		launchDate: undefined as Date | undefined,
 	});
+	const [uploading, setUploading] = React.useState(false);
+	const [files, setFiles] = React.useState<File[]>([]);
+
+	const resetFormData = () => {
+		setFormData({
+			title: "",
+			description: "",
+			slug: "",
+			technologies: [],
+			photos: [],
+			link: "",
+			blogPosts: "",
+			launchDate: undefined,
+		});
+		setFiles([]);
+	};
+
+	const handleCreateProject = async () => {
+		// here we will convert formData to json and save it to supabase storage
+		if (!formData.title.trim()) {
+			toast.error("Project title is required.");
+			return;
+		}
+
+		if (!formData.slug.trim()) {
+			toast.error("Project slug is required.");
+			return;
+		}
+
+		const splitBlogPosts = formData.blogPosts
+			.split(",")
+			.map((post) => post.trim());
+
+		const newProject: ProjectType = {
+			slug: formData.slug.trim(),
+			title: formData.title.trim(),
+			description: formData.description?.trim() || null,
+			technologies: formData.technologies,
+			photos: [], // we will fill this after uploading photos to supabase
+			link: formData.link?.trim() || null,
+			blogPosts: splitBlogPosts.filter((post) => post !== ""),
+			launchDate: formData.launchDate || null,
+		};
+
+		setUploading(true);
+
+		try {
+			const photosFormData = new FormData();
+			files.forEach((file) => {
+				photosFormData.append("files", file);
+			});
+			photosFormData.append("bucket", "photos");
+
+			const photosResponse = await fetch("/api/upload-photos", {
+				method: "POST",
+				body: photosFormData,
+			});
+
+			if (!photosResponse.ok) {
+				const errorData = await photosResponse.json();
+				toast.error(`Error uploading photos: ${errorData.error}`);
+				setUploading(false);
+				return;
+			}
+
+			const photosData = await photosResponse.json();
+
+			if (photosData.urls) {
+				newProject.photos = photosData.urls;
+			} else {
+				toast.error("No photos uploaded successfully.");
+				setUploading(false);
+				return;
+			}
+
+			const response = await fetch("/api/upload-json", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					filename: `projects/${newProject.slug}.json`,
+					data: newProject,
+				}),
+			});
+
+			if (!response.ok) {
+				const errorData = await response.json();
+				toast.error(`Error uploading project: ${errorData.error}`);
+				setUploading(false);
+				return;
+			}
+
+			toast.success(
+				`Project "${newProject.title}" created successfully!`
+			);
+		} catch (error) {
+			toast.error(
+				`Error uploading project: ${
+					error instanceof Error ? error.message : "Unknown error"
+				}`
+			);
+		} finally {
+			setUploading(false);
+		}
+
+		toast.success(`Project "${newProject.title}" created successfully!`);
+		onOpenChange(false);
+		resetFormData();
+	};
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
@@ -51,17 +169,9 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 				<Button
 					className="absolute py-0.5 top-3 right-11"
 					onClick={() => {
-						setFormData({
-							title: "",
-							description: "",
-							slug: "",
-							technologies: [],
-							photos: [],
-							link: "",
-							blogPosts: "",
-							launchDate: new Date(),
-						});
+						resetFormData();
 					}}
+					disabled={uploading}
 				>
 					Reset form
 				</Button>
@@ -72,7 +182,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 							className="text-sm font-semibold font-sans"
 							htmlFor="project-title"
 						>
-							Title
+							Title*
 						</label>
 						<Input
 							type="text"
@@ -86,6 +196,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 								})
 							}
 							autoCorrect="off"
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -98,13 +209,14 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 						<Textarea
 							placeholder="Project description"
 							id="project-description"
-							value={formData.description}
+							value={formData.description || ""}
 							onChange={(e) =>
 								setFormData({
 									...formData,
 									description: e.target.value,
 								})
 							}
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -112,7 +224,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 							className="text-sm font-semibold font-sans"
 							htmlFor="project-slug"
 						>
-							Slug
+							Slug* (used as identifier, must be unique)
 						</label>
 						<div className="flex flex-row items-center gap-2">
 							<span className="text-sm font-sans">
@@ -130,6 +242,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 									})
 								}
 								autoCorrect="off"
+								disabled={uploading}
 							/>
 						</div>
 					</div>
@@ -148,6 +261,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 									technologies: technologies,
 								})
 							}
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -161,7 +275,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 							type="text"
 							placeholder="Project link"
 							id="project-link"
-							value={formData.link}
+							value={formData.link || ""}
 							onChange={(e) =>
 								setFormData({
 									...formData,
@@ -169,6 +283,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 								})
 							}
 							autoCorrect="off"
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -176,14 +291,14 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 							className="text-sm font-semibold font-sans"
 							htmlFor="project-launch-date"
 						>
-							Launch date?
+							Launch date
 						</label>
 						<Input
 							type="date"
 							placeholder="Project launch date"
 							id="project-launch-date"
 							value={
-								formData.launchDate.toISOString().split("T")[0]
+								formData.launchDate?.toISOString().split("T")[0]
 							}
 							onChange={(e) =>
 								setFormData({
@@ -192,6 +307,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 								})
 							}
 							autoCorrect="off"
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -211,6 +327,7 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 									blogPosts: e.target.value, // will be parsed into an array
 								})
 							}
+							disabled={uploading}
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
@@ -227,48 +344,82 @@ export function NewProject({ open, onOpenChange }: NewProjectProps) {
 							id="project-photos"
 							onChange={(e) => {
 								const files = Array.from(e.target.files || []);
-								const fileUrls = files.map((file) =>
-									URL.createObjectURL(file)
-								);
-								setFormData({
-									...formData,
-									photos: [...formData.photos, ...fileUrls],
-								});
+								setFiles((prevFiles) => [
+									...prevFiles,
+									...files,
+								]);
 							}}
 							className="border-dashed cursor-pointer text-foreground/50"
+							disabled={uploading}
 						/>
 						{/* Display selected photos */}
-						{formData.photos.length > 0 && (
+						{files.length > 0 && (
 							<div className="flex flex-wrap gap-2 mt-2">
-								{formData.photos.map((photo, index) => (
-									<div key={index} className="relative">
-										<Image
-											src={photo}
-											alt={`Preview ${index + 1}`}
-											width={100}
-											height={100}
-											className="w-20 h-20 object-cover rounded border"
-										/>
-										<button
-											type="button"
-											onClick={() => {
-												const newPhotos =
-													formData.photos.filter(
-														(_, i) => i !== index
+								{files.map((photo, index) => {
+									const objectUrl =
+										URL.createObjectURL(photo);
+									return (
+										<div key={index} className="relative">
+											<Image
+												src={objectUrl}
+												alt={`Preview ${index + 1}`}
+												width={100}
+												height={100}
+												className="w-20 h-20 object-cover rounded border"
+											/>
+											<button
+												type="button"
+												onClick={() => {
+													const newPhotos =
+														formData.photos.filter(
+															(_, i) =>
+																i !== index
+														);
+													setFormData({
+														...formData,
+														photos: newPhotos,
+													});
+													URL.revokeObjectURL(
+														objectUrl
 													);
-												setFormData({
-													...formData,
-													photos: newPhotos,
-												});
-											}}
-											className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs"
-										>
-											<XIcon weight="bold" />
-										</button>
-									</div>
-								))}
+												}}
+												disabled={uploading}
+												className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
+											>
+												<XIcon weight="bold" />
+											</button>
+										</div>
+									);
+								})}
 							</div>
 						)}
+					</div>
+					<div className="flex flex-row items-center justify-end gap-2">
+						<Button
+							variant="default"
+							size="lg"
+							disabled={uploading}
+							onClick={() => onOpenChange(false)}
+						>
+							Cancel
+							<XIcon weight="bold" className="size-4" />
+						</Button>
+						<Button
+							variant="confirm"
+							size="lg"
+							onClick={() => handleCreateProject()}
+							disabled={uploading}
+						>
+							Create project
+							{uploading ? (
+								<CircleNotchIcon
+									weight="bold"
+									className="size-4 animate-spin"
+								/>
+							) : (
+								<CheckIcon weight="bold" className="size-4" />
+							)}
+						</Button>
 					</div>
 				</div>
 			</DialogContent>

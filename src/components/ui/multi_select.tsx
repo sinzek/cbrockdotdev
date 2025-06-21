@@ -12,6 +12,7 @@ interface MultiSelectProps {
 	onSelect: (option: string) => void;
 	onDeselect: (option: string) => void;
 	placeholder?: string;
+	disabled?: boolean;
 }
 
 export function MultiSelect({
@@ -22,6 +23,7 @@ export function MultiSelect({
 	onSelect,
 	onDeselect,
 	placeholder,
+	disabled = false,
 }: MultiSelectProps) {
 	const [searchQuery, setSearchQuery] = React.useState("");
 
@@ -34,9 +36,10 @@ export function MultiSelect({
 			<PopoverTrigger asChild>
 				<button
 					className={cn(
-						"group flex items-center gap-2 px-3 min-h-9 border border-foreground/25 bg-foreground/5 hover:border-foreground text-sm rounded-sm cursor-pointer text-left transition-all",
+						"group flex items-center gap-2 px-3 min-h-9 border border-foreground/25 bg-foreground/5 hover:border-foreground text-sm rounded-sm cursor-pointer text-left transition-all disabled:opacity-50 disabled:pointer-events-none",
 						open && "ring-[2px] ring-red/75 border-foreground"
 					)}
+					disabled={disabled}
 				>
 					{selectedOptions.length > 0 ? (
 						selectedOptions.join(", ")

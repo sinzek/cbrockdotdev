@@ -1,6 +1,6 @@
 import { Technologies } from "@/components/technologies";
 
-export default function Projects() {
+export default function ProjectsPage() {
 	// since this page is rendered on the server, we can fetch data directly here
 	// and pass it to a component as props
 	// essentially, this is where i'll fetch projects from supabase

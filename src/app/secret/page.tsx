@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { NewProject } from "./components/new-project";
 import React from "react";
+import Projects from "@/components/projects";
 
 export default function SecretPage() {
 	const [newProjectOpen, setNewProjectOpen] = React.useState(false);
@@ -81,6 +82,7 @@ export default function SecretPage() {
 							</Button>
 						</Link>
 					</div>
+					<Projects />
 				</section>
 			</div>
 		</>
