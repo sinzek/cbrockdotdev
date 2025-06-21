@@ -16,7 +16,7 @@ export default function Home() {
 			<div className="flex flex-col">
 				<div className="flex flex-row items-center gap-6 justify-start">
 					<Image
-						src="/ChaseBrock.jpg"
+						src="https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/ChaseBrock.jpg"
 						alt="A picture of me"
 						width={146}
 						height={146}
