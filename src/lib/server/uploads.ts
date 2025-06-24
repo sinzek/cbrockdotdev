@@ -1,25 +1,17 @@
+import { ProjectType } from "../types";
 import { supabase } from "./supabase-client";
 
-export async function uploadJSONToSupabase(
-	filename: string,
-	jsonData: object
-): Promise<{ success: boolean; error?: string }> {
-	const fileBlob = new Blob([JSON.stringify(jsonData, null, 2)], {
-		type: "application/json",
-	});
-
-	const { error } = await supabase.storage
+export async function uploadProjectToSupabase(project: ProjectType) {
+	const { error } = await supabase
 		.from("projects")
-		.upload(filename, fileBlob, {
-			contentType: "application/json",
-			upsert: true, // overwrite if file exists, this is useful for updates
-		});
+		.upsert(project, { onConflict: "slug" });
 
 	if (error) {
-		console.error("Error uploading JSON to Supabase:", error);
+		console.error("Error uploading project to Supabase:", error);
 		return { success: false, error: error.message };
 	}
 
+	console.log("Project uploaded successfully:", project.slug);
 	return { success: true };
 }
 

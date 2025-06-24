@@ -7,6 +7,7 @@ export type ProjectType = {
 	link: string | null; // link to the project
 	blogPosts: string[]; // array of blog post slugs related to the project
 	launchDate: Date | null; // date when the project was launched
+	visible: boolean; // whether the project is visible on the portfolio
 };
 
 export type BlogPostType = {

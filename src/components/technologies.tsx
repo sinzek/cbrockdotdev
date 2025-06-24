@@ -1,20 +1,45 @@
 import StackIcon from "tech-stack-icons";
-import { technologies } from "@/lib/constants";
+import { technologies as allTechnologies } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-export const Technologies = () => {
+export const Technologies = ({
+	technologies,
+	mini,
+}: {
+	technologies?: { name: string; icon: string }[];
+	mini?: boolean;
+}) => {
 	return (
 		<>
-			<div className="flex flex-row items-center flex-wrap gap-10">
-				{technologies.map((tech) => {
+			<div
+				className={cn(
+					"flex flex-row items-center flex-wrap",
+					mini ? "gap-4" : "gap-10"
+				)}
+			>
+				{(technologies ? technologies : allTechnologies).map((tech) => {
 					return (
 						<div
 							className="group flex flex-col items-center justify-center gap-2"
 							key={tech.name}
 						>
-							<StackIcon name={tech.icon} className="w-18" />
-							<span className="pointer-events-none text-sm font-sans group-hover:text-foreground text-foreground/50 transition-colors duration-200 font-light text-center">
-								{tech.name}
-							</span>
+							<StackIcon
+								name={tech.icon}
+								className={cn(
+									"hover:grayscale transition-all shrink-0",
+									mini ? "size-10" : "size-18"
+								)}
+							/>
+							{!mini && (
+								<span
+									className={cn(
+										"pointer-events-none font-sans group-hover:text-foreground text-foreground/50 transition-colors duration-200 font-light text-center",
+										mini ? "text-xs" : "text-sm"
+									)}
+								>
+									{tech.name}
+								</span>
+							)}
 						</div>
 					);
 				})}

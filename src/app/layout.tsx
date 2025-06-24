@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Metal_Mania } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
+import { Providers } from "../providers";
 import { Tabs } from "@/components/tabs";
 import { Noto_Serif } from "next/font/google";
 
@@ -42,8 +42,8 @@ export default function RootLayout({
 				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased`}
 			>
 				<Providers>
-					<div className="w-dscreen min-h-dscreen h-screen gap-4">
-						<div className="flex flex-col items-center justify-start max-w-5xl w-full h-full mx-auto">
+					<div className="w-dscreen max-w-dscreen overflow-x-hidden min-h-dscreen h-screen gap-4">
+						<div className="flex flex-col items-center justify-start w-full h-full mx-auto">
 							<Tabs />
 							{children}
 						</div>

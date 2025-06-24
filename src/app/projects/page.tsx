@@ -1,6 +1,7 @@
+import Projects from "@/components/projects";
 import { Technologies } from "@/components/technologies";
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
 	// since this page is rendered on the server, we can fetch data directly here
 	// and pass it to a component as props
 	// essentially, this is where i'll fetch projects from supabase
@@ -21,32 +22,7 @@ export default function ProjectsPage() {
 				<h2 className="text-4xl font-semibold font-header">
 					Here are some of the things I&apos;ve built so far:
 				</h2>
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-					<div className="bg-foreground/10 p-4 rounded-lg">
-						<h3 className="text-2xl font-semibold">Project 1</h3>
-						<p className="text-base font-light">
-							Description of project 1. This project showcases my
-							ability to build full-stack applications using
-							modern technologies.
-						</p>
-					</div>
-					<div className="bg-foreground/10 p-4 rounded-lg">
-						<h3 className="text-2xl font-semibold">Project 1</h3>
-						<p className="text-base font-light">
-							Description of project 1. This project showcases my
-							ability to build full-stack applications using
-							modern technologies.
-						</p>
-					</div>
-					<div className="bg-foreground/10 p-4 rounded-lg">
-						<h3 className="text-2xl font-semibold">Project 1</h3>
-						<p className="text-base font-light">
-							Description of project 1. This project showcases my
-							ability to build full-stack applications using
-							modern technologies.
-						</p>
-					</div>
-				</div>
+				<Projects />
 			</section>
 		</div>
 	);

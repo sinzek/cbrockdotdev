@@ -54,53 +54,66 @@ export const technologies = [
 	{
 		name: "Git",
 		icon: "git",
+		url: "https://git-scm.com/",
 	},
 	{
 		name: "JavaScript",
 		icon: "js",
+		url: "https://www.javascript.com/",
 	},
 	{
 		name: "TypeScript",
 		icon: "typescript",
+		url: "https://www.typescriptlang.org/",
 	},
 	{
 		name: "HTML",
 		icon: "html5",
+		url: "https://www.w3.org/html/",
 	},
 	{
 		name: "CSS",
 		icon: "css3",
+		url: "https://www.w3.org/Style/CSS/",
 	},
 	{
 		name: "React",
 		icon: "react",
+		url: "https://react.dev/",
 	},
 	{
 		name: "NextJS",
 		icon: "nextjs2",
+		url: "https://nextjs.org/",
 	},
 	{
 		name: "NodeJS",
 		icon: "nodejs",
+		url: "https://nodejs.org/",
 	},
 	{
 		name: "WordPress",
 		icon: "wordpress",
+		url: "https://wordpress.org/",
 	},
 	{
 		name: "Tailwind CSS",
 		icon: "tailwindcss",
+		url: "https://tailwindcss.com/",
 	},
 	{
 		name: "PostgreSQL",
 		icon: "postgresql",
+		url: "https://www.postgresql.org/",
 	},
 	{
 		name: "Supabase",
 		icon: "supabase",
+		url: "https://supabase.com/",
 	},
 	{
 		name: "MongoDB",
 		icon: "mongodb",
+		url: "https://www.mongodb.com/",
 	},
 ];

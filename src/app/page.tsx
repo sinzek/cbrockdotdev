@@ -36,26 +36,22 @@ export default function Home() {
 								</span>
 							))}
 						</h1>
-						<div className="fle flex-row items-center">
-							<span className="pl-2 pr-3 py-0.5 rounded-md text-foreground/75 bg-foreground/15 inline-flex w-fit flex-row items-center">
+						<div className="fle flex-row items-center text-red text-base font-medium font-sans">
+							<span className="pl-2 pr-3 py-0.5 rounded-md bg-red/15 inline-flex w-fit flex-row items-center">
 								<CodeIcon
-									weight="bold"
+									weight="regular"
 									size={20}
 									className="inline mr-2"
 								/>
-								<h2 className="text-base font-semibold font-sans">
-									Full-Stack Developer
-								</h2>
+								<h2>Full-Stack Developer</h2>
 							</span>
-							<span className="ml-2 pl-2 pr-3 py-0.5 text-foreground/75 rounded-md bg-foreground/15 inline-flex w-fit flex-row items-center">
+							<span className="ml-2 pl-2 pr-3 py-0.5 rounded-md bg-red/15 inline-flex w-fit flex-row items-center">
 								<GraduationCapIcon
 									weight="fill"
 									size={20}
 									className="inline mr-2"
 								/>
-								<h2 className="text-base font-semibold font-sans">
-									Student
-								</h2>
+								<h2>Student</h2>
 							</span>
 						</div>
 						<div className="flex flex-row items-center gap-2">
