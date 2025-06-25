@@ -26,7 +26,7 @@ export const Technologies = ({
 							<StackIcon
 								name={tech.icon}
 								className={cn(
-									"hover:grayscale transition-all shrink-0",
+									"grayscale-25 hover:grayscale-0 transition-all shrink-0",
 									mini ? "size-10" : "size-18"
 								)}
 							/>

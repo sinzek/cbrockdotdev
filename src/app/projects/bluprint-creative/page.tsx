@@ -17,17 +17,12 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import StackIcon from "tech-stack-icons";
-import {
-	CalendarExpandedButton,
-	CalendarExpandedModal,
-} from "./components/calendar-expanded";
-import { useState } from "react";
+import { CalendarExpanded } from "./components/calendar-expanded";
+import { IdeaCatalogExpanded } from "./components/idea-catalog-expanded";
+import { technologyBreakdownList } from "./constants";
 
 export default function BluprintCreativePage() {
 	const { projects } = useProjects();
-	const [modalStates, setModalStates] = useState({
-		calendarExpanded: false,
-	});
 
 	const bpCreative = projects.find(
 		(project) => project.slug === "bluprint-creative"
@@ -35,7 +30,11 @@ export default function BluprintCreativePage() {
 
 	if (!bpCreative) {
 		return (
-			<div className="text-center text-red-500">Project not found.</div>
+			<div className="flex items-center justify-center w-full h-screen">
+				<p className="text-2xl font-semibold text-foreground">
+					Project not found.
+				</p>
+			</div>
 		);
 	}
 
@@ -50,63 +49,8 @@ export default function BluprintCreativePage() {
 		})
 		.filter((tech) => tech !== undefined);
 
-	const technologyBreakdown = [
-		{
-			name: "Next.js",
-			icon: "nextjs2",
-			whyItsUsed:
-				"Server-side rendering, API and page routing, and static site generation",
-		},
-		{
-			name: "React",
-			icon: "react",
-			whyItsUsed: "Component-based architecture for building UI",
-		},
-		{
-			name: "Tailwind CSS",
-			icon: "tailwindcss",
-			whyItsUsed:
-				"Fast and efficient styling, theming, and support for responsive design",
-		},
-		{
-			name: "TypeScript",
-			icon: "typescript",
-			whyItsUsed:
-				"Strong types for better developer experience, maintainability, and safety",
-		},
-		{
-			name: "Supabase",
-			icon: "supabase",
-			whyItsUsed:
-				"Catch-all database for users, data storage, subscription management, etc.",
-		},
-		{
-			name: "Vercel",
-			icon: "vercel",
-			whyItsUsed:
-				"Hosting, deployment, speed insights, file storage, and Next.js integration",
-		},
-		{
-			name: "Git",
-			icon: "git",
-			whyItsUsed:
-				"Version control for tracking changes and deployment management",
-		},
-		{
-			name: "Stripe",
-			icon: "/icons/stripe-icon.svg",
-			whyItsUsed: "Payment processing and management for subscriptions",
-		},
-	];
-
 	return (
 		<>
-			<CalendarExpandedModal
-				open={modalStates.calendarExpanded}
-				setOpen={(open) =>
-					setModalStates({ ...modalStates, calendarExpanded: open })
-				}
-			/>
 			<div className="flex w-full flex-col gap-20 items-center">
 				<section
 					id="header"
@@ -126,9 +70,11 @@ export default function BluprintCreativePage() {
 							<br />
 							<span className="text-base font-light text-foreground/50">
 								*Due to this being a client project, I am unable
-								to provide a live demo of the application.
-								However, I can provide code samples and
-								screenshots of it in action.
+								to provide a full open-source copy of the
+								application. However, I can provide code samples
+								and screenshots of it in action. If you&apos;d
+								like to try it out for free, click &quot;Check
+								it out&quot; below.
 							</span>
 						</p>
 						<div className="flex flex-row items-center gap-2 mt-4">
@@ -213,10 +159,10 @@ export default function BluprintCreativePage() {
 							Stack breakdown
 						</h2>
 						<div className="w-full grid grid-cols-4 gap-8">
-							{technologyBreakdown.map((tech, index) => (
+							{technologyBreakdownList.map((tech, index) => (
 								<div
 									key={`technology-breakdown-${tech.name}-${index}`}
-									className="group flex flex-col gap-3 w-full rounded-md p-6 bg-background/50 border border-foreground/10 hover:border-red/25 transition-colors"
+									className="group flex flex-col gap-3 w-full rounded-md p-6 bg-gradient-to-b from-foreground/10 to-background/50 to-5% border border-foreground/10 border-t-foreground/25 hover:border-t-red/50 hover:border-red/25 transition-colors shadow-black/50 dual-shadow"
 								>
 									<span className="flex flex-row items-center gap-2">
 										{tech.name === "Stripe" ? (
@@ -225,11 +171,11 @@ export default function BluprintCreativePage() {
 												height={32}
 												width={32}
 												alt="stripe-icon"
-												className="group-hover:grayscale transition-all shrink-0 object-cover size-8 inline"
+												className="grayscale-50 group-hover:grayscale-0 transition-all shrink-0 object-cover size-8 inline"
 											/>
 										) : (
 											<StackIcon
-												className="inline w-8 group-hover:grayscale transition-all shrink-0"
+												className="inline w-8 grayscale-50 group-hover:grayscale-0 transition-all shrink-0"
 												name={tech.icon}
 											/>
 										)}
@@ -259,19 +205,12 @@ export default function BluprintCreativePage() {
 						Features
 					</h2>
 					<div className="grid grid-cols-2 gap-8">
-						<div className="relative group flex flex-col gap-4 rounded-lg p-6 bg-foreground/5 border border-foreground/10 hover:border-red/25 transition-colors">
+						<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
 							<div className="absolute top-4 right-4">
-								<CalendarExpandedButton
-									setOpen={(open) =>
-										setModalStates({
-											...modalStates,
-											calendarExpanded: open,
-										})
-									}
-								/>
+								<CalendarExpanded />
 							</div>
 							<Image
-								src="/bpc/calendar-screenshots.png"
+								src="/bpc/fancy-calendars.png"
 								alt="Calendar screenshots"
 								width={1280}
 								height={720}
@@ -310,19 +249,12 @@ export default function BluprintCreativePage() {
 								</p>
 							</Link>
 						</div>
-						<div className="relative group flex flex-col gap-4 rounded-lg p-6 bg-foreground/5 border border-foreground/10 hover:border-red/25 transition-colors">
+						<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
 							<div className="absolute top-4 right-4">
-								<CalendarExpandedButton
-									setOpen={(open) =>
-										setModalStates({
-											...modalStates,
-											calendarExpanded: open,
-										})
-									}
-								/>
+								<IdeaCatalogExpanded />
 							</div>
 							<Image
-								src="/bpc/idea-grid.png"
+								src="/bpc/fancy-ideaGrid-dark-frame3.png"
 								alt="Idea catalog screenshot"
 								width={1280}
 								height={720}

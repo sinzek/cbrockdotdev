@@ -20,24 +20,26 @@ export default function Home() {
 						alt="A picture of me"
 						width={146}
 						height={146}
-						className="object-cover object-top rounded-5xl"
+						className="object-cover object-top rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark"
 					/>
 					<div className="flex flex-col text-left gap-1">
-						<h1 className="text-[64px]/18 font-semibold font-metal">
+						<h1 className="text-[64px]/18 font-semibold font-metal bg-clip-text text-transparent bg-gradient-to-b from-white from-25% to-white/50 to-60%">
 							{"Chase Brock".split("").map((char, index) => (
 								<span
 									key={`chase-brock-${index}`}
 									className={cn(
 										"transition-colors duration-200",
-										char === " " ? "" : "hover:text-red"
+										char === " "
+											? ""
+											: "hover:text-red hover:drop-shadow-red/50 hover:drop-shadow-lg"
 									)}
 								>
 									{char}
 								</span>
 							))}
 						</h1>
-						<div className="fle flex-row items-center text-red text-base font-medium font-sans">
-							<span className="pl-2 pr-3 py-0.5 rounded-md bg-red/15 inline-flex w-fit flex-row items-center">
+						<div className="fle flex-row items-center space-x-2 text-red text-base font-medium font-sans">
+							<span className="pl-2 pr-3 py-0.5 rounded-md bg-gradient-to-b from-red/25 to-red/15 to-30% inline-flex w-fit flex-row items-center border border-red/15 border-t-red/40">
 								<CodeIcon
 									weight="regular"
 									size={20}
@@ -45,7 +47,7 @@ export default function Home() {
 								/>
 								<h2>Full-Stack Developer</h2>
 							</span>
-							<span className="ml-2 pl-2 pr-3 py-0.5 rounded-md bg-red/15 inline-flex w-fit flex-row items-center">
+							<span className="pl-2 pr-3 py-0.5 rounded-md bg-gradient-to-b from-red/25 to-red/15 to-30% inline-flex w-fit flex-row items-center border border-red/15 border-t-red/40">
 								<GraduationCapIcon
 									weight="fill"
 									size={20}
@@ -54,9 +56,11 @@ export default function Home() {
 								<h2>Student</h2>
 							</span>
 						</div>
-						<div className="flex flex-row items-center gap-2">
+						<div className="flex flex-row items-center gap-2 text-foreground/75">
 							<HouseLineIcon weight="fill" size={20} />
-							<p className="text-lg font-sans">Houston, TX</p>
+							<p className="text-lg font-header font-semibold">
+								Houston, TX
+							</p>
 						</div>
 					</div>
 				</div>
@@ -74,7 +78,10 @@ export default function Home() {
 										: undefined
 								}
 							>
-								<Button>
+								<Button
+									variant="default"
+									className="dual-shadow-sm-dark"
+								>
 									<Icon
 										weight={"fill"}
 										size={20}

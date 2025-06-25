@@ -25,7 +25,7 @@ export default function Projects({
 					projects.map((project) => {
 						return (
 							<div
-								className="group relative flex flex-col w-full rounded-lg overflow-hidden border border-foreground/5 hover:border-red/25 shadow-2xl shadow-foreground/5 hover:shadow-red/25 transition-all duration-200"
+								className="group relative flex flex-col w-full rounded-lg overflow-hidden border border-foreground/20 border-t-foreground/40 hover:border-red/50 hover:border-t-red/75 dual-shadow-red-hover transition-all"
 								key={`projects-${project.slug}`}
 							>
 								{project.photos.length > 0 ? (
@@ -43,9 +43,9 @@ export default function Projects({
 										</p>
 									</div>
 								)}
-								<div className=" h-full bg-gradient-to-b from-foreground/5 to-foreground/10 px-4 pt-2 pb-4 space-y-2 rounded-b-lg">
+								<div className=" h-full bg-gradient-to-b from-foreground/5 to-foreground/10 to-5% px-4 pt-2 pb-4 space-y-2 rounded-b-lg">
 									<div className="w-full flex flex-row items-center justify-between">
-										<h3 className="group-hover:text-red font-header transition-all duration-200 text-2xl font-semibold">
+										<h3 className="group-hover:text-red font-header transition-all duration-200 text-2xl">
 											{project.title}
 										</h3>
 										{project.launchDate && (
@@ -56,7 +56,7 @@ export default function Projects({
 											</p>
 										)}
 									</div>
-									<p className="text-base font-light font-sans mt-4">
+									<p className="text-base font-light text-foreground/75 font-sans mt-4">
 										{project.description}
 									</p>
 

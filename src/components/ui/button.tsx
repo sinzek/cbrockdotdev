@@ -10,15 +10,15 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default:
-					"rounded-full bg-transparent hover:bg-red/25 text-foreground border border-foreground/25 hover:border-red hover:text-red",
+					"font-light rounded-full bg-transparent hover:bg-gradient-to-b hover:from-red/25 hover:to-red/10 hover:to-30% text-foreground border border-foreground/25 border-t-foreground/50 hover:border-red/50 hover:border-t-red hover:text-red dual-shadow-sm",
 				confirm:
-					"rounded-full bg-red/50 hover:bg-red/75 text-foreground/75 border border-red hover:text-foreground",
+					"font-medium rounded-full bg-gradient-to-b from-red/50 to-red/25 to-25% hover:bg-gradient-to-b hover:from-red/75 hover:to-red/40 hover:to-30% text-foreground hover:text-foreground border border-red/50 border-t-red dual-shadow-sm hover:[&_svg]:scale-110 [&_svg]:transition-all [&_svg]:duration-300",
 				danger: "rounded-full bg-yellow/50 hover:bg-yellow/75 text-background/75 hover:text-background border border-yellow/75 hover:border-yellow",
 				icon: "rounded-sm bg-transparent hover:bg-red/10 hover:text-red text-foreground hover:border-red/50 border border-transparent",
 			},
 			size: {
-				default: "text-sm gap-1 font-light px-3 py-1",
-				lg: "text-base gap-2 font-medium px-4 py-1",
+				default: "text-sm gap-1 px-3 py-1",
+				lg: "text-base gap-2 px-4 py-1",
 				icon: "[&_svg]:size-5 p-1",
 			},
 		},

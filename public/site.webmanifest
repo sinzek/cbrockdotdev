@@ -1,0 +1,20 @@
+{
+	"name": "cbrock.dev",
+	"short_name": "cbrock",
+	"description": "Portfolio of Chase Brock, a full-stack developer and student at the University of Houston.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0f172a",
+	"theme_color": "#d7263d",
+	"orientation": "portrait",
+	"scope": "/",
+	"icons": [
+		{
+			"src": "/rocketLaunchWhite.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
+		}
+	],
+	"related_applications": [],
+	"prefer_related_applications": false
+}

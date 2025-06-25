@@ -150,4 +150,28 @@
 }
 
 @layer utilities {
+	.dual-shadow {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
+			/* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+	}
+
+	.dual-shadow-dark {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
+			/* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+	}
+
+	.dual-shadow-sm {
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5),
+			/* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+	}
+
+	.dual-shadow-sm-dark {
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5),
+			/* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+	}
+
+	.dual-shadow-red-hover:hover {
+		box-shadow: 0 4px 6px rgba(215, 38, 61, 0.25),
+			/* smaller, sharper shadow */ 0 12px 20px rgba(215, 38, 61, 0.25); /* larger, softer shadow */
+	}
 }
