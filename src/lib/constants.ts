@@ -16,7 +16,7 @@ export const links = [
 	},
 	{
 		name: "Resume",
-		href: "/ChaseBrockResume.pdf",
+		href: "/chase-brock-resume.pdf",
 		icon: ReadCvLogoIcon,
 	},
 	{

@@ -32,7 +32,7 @@ export function IdeaCatalogExpanded() {
 							className="rounded-lg border border-foreground/10"
 						/>
 					</div>
-					<div className="flex flex-col gap-4 max-h-[71vh] overflow-y-auto pl-6 text-base 4xl:text-lg font-light font-sans text-foreground/75">
+					<div className="flex flex-col gap-4 max-h-[71vh] overflow-y-auto pl-6 pr-2 text-base 4xl:text-lg font-light font-sans text-foreground/75">
 						<h2 className="text-3xl font-semibold font-header text-foreground mb-3">
 							<LightbulbFilamentIcon
 								className="inline mr-2.5 mb-1"
@@ -64,7 +64,7 @@ export function IdeaCatalogExpanded() {
 									alt="Quick edit menu dark mode"
 									width={685}
 									height={442}
-									className="max-w-[560px] mt-2"
+									className="max-w-[560px] mt-2 rounded-md w-3/4"
 								/>
 							</li>
 							<li>
@@ -89,7 +89,7 @@ export function IdeaCatalogExpanded() {
 								<iframe
 									width="560"
 									height="315"
-									className="mt-2"
+									className="mt-2 rounded-md w-3/4"
 									src="https://www.youtube-nocookie.com/embed/MZcfGmeLj_Y?si=F6NbqbK_Ug4pXvUV"
 									title="YouTube video player"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -125,7 +125,7 @@ export function IdeaCatalogExpanded() {
 									alt="Quick edit menu dark mode"
 									width={685}
 									height={442}
-									className="max-w-[560px] mt-2"
+									className="max-w-[560px] mt-2 rounded-md w-3/4"
 								/>
 							</li>
 							<li>

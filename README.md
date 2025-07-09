@@ -29,8 +29,8 @@ This site is where I showcase my projects, write about what I'm learning, and mo
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/cbrock.dev.git
-cd cbrock.dev
+git clone https://github.com/sinzek/cbrockdotdev.git
+cd cbrockdotdev
 npm install
 # or yarn / pnpm install
 ```

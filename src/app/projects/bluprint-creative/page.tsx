@@ -13,6 +13,8 @@ import {
 	SparkleIcon,
 	CalendarIcon,
 	LightbulbFilamentIcon,
+	ClipboardTextIcon,
+	ScrollIcon,
 } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +22,8 @@ import StackIcon from "tech-stack-icons";
 import { CalendarExpanded } from "./components/calendar-expanded";
 import { IdeaCatalogExpanded } from "./components/idea-catalog-expanded";
 import { technologyBreakdownList } from "./constants";
+import { IdeaEditorExpanded } from "./components/idea-editor-expanded";
+import { ScriptExpanded } from "./components/script-expanded";
 
 export default function BluprintCreativePage() {
 	const { projects } = useProjects();
@@ -122,16 +126,16 @@ export default function BluprintCreativePage() {
 								/>
 								Overview
 							</h2>
-							<p className="font-sans font-light text-xl text-foreground/50">
+							<p className="font-sans font-light text-xl text-foreground/65">
 								Bluprint Creative is a full-stack web
-								application that I was contracted to build
-								entirely on my own with client feature requests
-								and sales page tweaks. It features a modern,
-								responsive design that supports both mobile and
-								desktop.
+								application that I built independently, based on
+								client feature requests and updates to the sales
+								page. It features a modern, responsive design
+								that works seamlessly on both mobile and desktop
+								devices.
 							</p>
-							<div className="bg-red/15 p-4 mt-4 border-l-6 border-red/25 space-y-4 rounded-md z-10">
-								<h3 className="text-xl font-header text-foreground/75 font-normal">
+							<div className="bg-gradient-to-b from-red/25 to-red/10 to-6% p-4 mt-4 border-l-6 border-t border-red/50 border-t-red/35 space-y-4 rounded-md z-10">
+								<h3 className="text-xl font-header text-foreground font-normal">
 									<CodeIcon
 										className="inline mr-2 mb-1"
 										weight="bold"
@@ -218,19 +222,19 @@ export default function BluprintCreativePage() {
 							/>
 							<h3 className="text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
 								<CalendarIcon
-									className="inline mr-2.5 mb-1"
+									className="inline mr-2 mb-1"
 									weight="fill"
 								/>
-								Fully-featured content calendar
+								Featureful content calendar
 							</h3>
 							<p className="font-sans text-lg font-light text-foreground/75">
 								Users can create, edit, resize, and delete
 								calendar events with a drag-and-drop interface.
 								The calendar supports monthly, weekly, and daily
 								views. Hovering an event will show a tooltip
-								with the event details (e.g., whether it is a
-								filming or release date, the platforms it will
-								be posted on, etc.).
+								with the event details, such as the title,
+								release platforms, and whether it is a release
+								date or a filming date.
 							</p>
 							<Link
 								href="https://fullcalendar.io/docs/react"
@@ -262,23 +266,108 @@ export default function BluprintCreativePage() {
 							/>
 							<h3 className="text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
 								<LightbulbFilamentIcon
-									className="inline mr-2.5 mb-1"
+									className="inline mr-2 mb-1"
 									weight="fill"
 								/>
-								Idea catalog
+								Robust idea catalog
 							</h3>
 							<p className="font-sans text-lg font-light text-foreground/75">
 								Here, users can manage every idea in their
-								current active collection. Ideas can be sorted
-								and filtered by category, status, archive
-								status, and the current search term. Multiple
-								ideas can be selected at once, and bulk actions
-								can be performed on them, such as adding a
-								specified category or status, archiving, or
-								deleting them. Categories are displayed at the
-								top, and selecting one will show only the ideas
-								within that category.
+								current active collection. Advanced sorting and
+								filtering is present, making finding a specific
+								idea as fast as possible. Bulk actions are also
+								possible, like adding a specified category or
+								deleting a set of ideas at once. Not only that,
+								but users can also duplicate an idea, quickly
+								edit an idea with the quick-edit menu, pin an
+								idea to their dashboard, and more.
 							</p>
+						</div>
+						<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="absolute top-4 right-4">
+								<IdeaEditorExpanded />
+							</div>
+							<Image
+								src="/bpc/fancy-ideaEditor-dark.png"
+								alt="Idea catalog screenshot"
+								width={1920}
+								height={1440}
+								className="object-contain aspect-video rounded-lg pointer-events-none scale-120 -translate-y-3"
+							/>
+							<h3 className="text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<ClipboardTextIcon
+									className="inline mr-2 mb-1"
+									weight="fill"
+								/>
+								Advanced custom-made fields
+							</h3>
+							<p className="font-sans text-lg font-light text-foreground/75">
+								From scratch (and with some help from radix-ui),
+								I created a set of form fields, a task list, and
+								a thumbnail grid that actually feel both nice to
+								use and like a native application; all with a
+								robust validation and an error handling system.
+							</p>
+							<Link
+								href="https://www.radix-ui.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
+									With help from{" "}
+									<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
+										@radix-ui
+									</span>
+									<ArrowUpRightIcon
+										className="inline ml-1"
+										weight="bold"
+									/>
+								</p>
+							</Link>
+						</div>
+						<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="absolute top-4 right-4">
+								<ScriptExpanded />
+							</div>
+							<Image
+								src="/bpc/fancy-scriptEditor-light-expanded.png"
+								alt="Script editor screenshot light mode"
+								width={1920}
+								height={1440}
+								className="object-contain aspect-video rounded-lg pointer-events-none scale-135"
+							/>
+							<h3 className="text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<ScrollIcon
+									className="inline mr-2 mb-1"
+									weight="fill"
+								/>
+								Full-fledged rich script editor
+							</h3>
+							<p className="font-sans text-lg font-light text-foreground/75">
+								Using tiptap, I created a rich text editor that
+								allows users to write scripts with formatting,
+								headings, lists, images, and more, all from the
+								idea editor. This way, a script is directly
+								attached to an idea, mitigating the
+								&quot;endless Google Docs&quot; problem
+								entirely.
+							</p>
+							<Link
+								href="https://tiptap.dev/docs/ui-components/templates/simple-editor"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
+									Powered by{" "}
+									<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
+										@tiptap/simple-editor
+									</span>
+									<ArrowUpRightIcon
+										className="inline ml-1"
+										weight="bold"
+									/>
+								</p>
+							</Link>
 						</div>
 					</div>
 				</section>

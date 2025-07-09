@@ -34,7 +34,7 @@ export default function Projects({
 										alt={`Screenshot of ${project.title}`}
 										width={1280}
 										height={720}
-										className="object-cover aspect-video"
+										className="object-contain aspect-video"
 									/>
 								) : (
 									<div className="aspect-video bg-red/50 flex items-center justify-center">
