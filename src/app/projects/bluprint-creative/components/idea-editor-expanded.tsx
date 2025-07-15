@@ -16,8 +16,8 @@ export function IdeaEditorExpanded() {
 				Read more
 			</CDialogTrigger>
 			<CDialogContent>
-				<div className="grid grid-cols-1 lg:grid-cols-5">
-					<div className="w-full flex flex-col gap-6 pr-6 col-span-2">
+				<div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:gap-0">
+					<div className="w-full flex flex-col gap-6 lg:pr-6 lg:max-h-full max-h-[30vh] overflow-y-auto lg:py-0 py-2 lg:col-span-2">
 						<Image
 							src="/bpc/ideaEditor-dark.png"
 							alt="Idea editor screenshot dark mode"
@@ -33,8 +33,8 @@ export function IdeaEditorExpanded() {
 							className="rounded-lg border border-foreground/10"
 						/>
 					</div>
-					<div className="col-span-3 flex flex-col gap-4 max-h-[75vh] overflow-y-auto pl-6 pr-2 text-base 4xl:text-lg font-light font-sans text-foreground/75">
-						<h2 className="text-3xl font-semibold font-header text-foreground mb-3">
+					<div className="lg:col-span-3 flex flex-col gap-4 max-h-[60vh] lg:max-h-[75vh] overflow-y-auto lg:pl-6 lg:pr-2 lg:pb-0 pb-12 text-base 4xl:text-lg font-light font-sans text-foreground/75">
+						<h2 className="text-2xl lg:text-3xl font-semibold font-header text-foreground lg:mb-3 pb-2 bg-background/90 sticky top-0 backdrop-blur-[2px]">
 							<LightbulbFilamentIcon
 								className="inline mr-2.5 mb-1"
 								weight="fill"
@@ -62,7 +62,7 @@ export function IdeaEditorExpanded() {
 							The overview section has the idea&apos;s primary
 							fields:
 						</p>
-						<ul className="list-disc pl-6 space-y-2">
+						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
 								<strong className="font-bold text-red">
 									Title:
@@ -158,7 +158,7 @@ export function IdeaEditorExpanded() {
 							alt="Thumbnail editor screenshot light mode"
 							width={685}
 							height={442}
-							className="max-w-[400px] mt-2 rounded-md"
+							className="w-full lg:max-w-[400px] mt-2 rounded-md"
 						/>
 						<p>
 							The thumbnails section is where users can upload,
@@ -188,7 +188,7 @@ export function IdeaEditorExpanded() {
 								alt="YouTube preview screenshot light mode"
 								width={685}
 								height={442}
-								className="max-w-[560px] mt-2 rounded-md"
+								className="w-full lg:max-w-[560px] mt-2 rounded-md"
 							/>
 							<li>
 								<strong className="font-bold text-red">

@@ -2,32 +2,121 @@
 import { links } from "@/lib/constants";
 import { ArrowLeftIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useMobile } from "@/hooks/useMobile";
+import { Fragment } from "react";
+import { AnimationWrapper } from "./animations";
 
 export const Tabs = () => {
 	const pathname = usePathname();
+	const isMobile = useMobile();
+	const router = useRouter();
+
+	const goBack = () => {
+		if (pathname === "/projects" || pathname === "/about-me") {
+			router.push("/");
+		} else if (pathname.startsWith("/projects")) {
+			router.push("/projects");
+		} else {
+			router.back();
+		}
+	};
+
+	if (isMobile) {
+		return (
+			<>
+				{pathname !== "/" && (
+					<AnimationWrapper className="absolute bottom-8 z-50">
+						<div className="px-4 rounded-full bg-background border border-accent  shadow-md shadow-black/75 will-change-transform">
+							<div className="flex flex-row items-center justify-center gap-2">
+								<button
+									type="button"
+									title="Go back"
+									onClick={goBack}
+									onTouchStart={(e) => {
+										e.currentTarget.style.transform =
+											"scale(0.85)";
+									}}
+									onTouchEnd={(e) => {
+										e.currentTarget.style.transform =
+											"scale(1)";
+									}}
+									onTouchCancel={(e) => {
+										e.currentTarget.style.transform =
+											"scale(1)";
+									}}
+									aria-label="Go back"
+									className="flex items-center justify-center p-1.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
+								>
+									<ArrowLeftIcon weight="regular" size={20} />
+								</button>
+								{links.map((link, index) => {
+									const Icon = link.icon;
+									return (
+										<Fragment
+											key={`mobile-tab-${link.name}`}
+										>
+											<Link
+												href={link.href}
+												className={cn(
+													"relative p-1.5 rounded-full text-foreground/75 my-1 transition-all",
+													pathname.startsWith(
+														link.href
+													) &&
+														"bg-red/30 text-foreground"
+												)}
+												onTouchStart={(e) => {
+													e.currentTarget.style.transform =
+														"scale(0.85)";
+												}}
+												onTouchEnd={(e) => {
+													e.currentTarget.style.transform =
+														"scale(1)";
+												}}
+												onTouchCancel={(e) => {
+													e.currentTarget.style.transform =
+														"scale(1)";
+												}}
+											>
+												<Icon
+													weight={
+														pathname.startsWith(
+															link.href
+														)
+															? "duotone"
+															: "regular"
+													}
+													size={24}
+												/>
+											</Link>
+											{index === links.length / 2 - 1 && (
+												<div
+													className="w-[0.5px] h-11 bg-accent"
+													key={`mobile-tab-separator-${index}`}
+												/>
+											)}
+										</Fragment>
+									);
+								})}
+							</div>
+						</div>
+					</AnimationWrapper>
+				)}
+			</>
+		);
+	}
 
 	return (
 		<>
 			{pathname !== "/" && (
-				<div className="flex flex-col items-center justify-center gap-1 mb-12 max-w-5xl w-full pt-18">
+				<div className="hidden lg:flex flex-col items-center justify-center gap-1 mb-12 max-w-5xl w-full pt-18 whitespace-nowrap">
 					<div className="flex flex-row items-center justify-center gap-4 w-full">
 						<button
 							type="button"
 							title="Go back"
-							onClick={() => {
-								if (
-									pathname === "/projects" ||
-									pathname === "/about-me" ||
-									pathname === "/blog"
-								) {
-									window.location.href = "/";
-								} else {
-									window.history.back();
-								}
-							}}
+							onClick={goBack}
 							aria-label="Go back"
 							className="text-lg font-sans font-light flex flex-row items-center justify-between gap-1 px-2 py-0.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
 						>

@@ -20,9 +20,9 @@ export function CalendarExpanded() {
 				Read more
 			</CDialogTrigger>
 			<CDialogContent>
-				<div className="grid grid-cols-1 lg:grid-cols-2">
-					<div className="flex flex-col gap-4 max-h-[67vh] overflow-y-auto pr-6 text-base 4xl:text-lg font-light font-sans text-foreground/75">
-						<h2 className="text-3xl font-semibold font-header text-foreground mb-3">
+				<div className="flex flex-col-reverse gap-4 lg:gap-0 lg:grid lg:grid-cols-2">
+					<div className="flex flex-col gap-3 lg:gap-4 max-h-[60vh] lg:max-h-[67vh] overflow-y-auto lg:pr-6 pb-24 lg:pb-0 text-base 4xl:text-lg font-light font-sans text-foreground/75">
+						<h2 className="lg:text-3xl text-2xl font-semibold font-header text-foreground mb-1 lg:mb-3 bg-background/90 sticky top-0 pb-2 backdrop-blur-[2px]">
 							<CalendarIcon
 								className="inline mr-2.5 mb-1"
 								weight="fill"
@@ -45,7 +45,7 @@ export function CalendarExpanded() {
 							Creating a calendar event attached to an idea is
 							simple:
 						</p>
-						<div className="grid grid-cols-2 gap-4 mb-4">
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
 							<div className="flex flex-col gap-2">
 								<p className="font-semibold text-base text-red">
 									<VideoCameraIcon
@@ -101,12 +101,12 @@ export function CalendarExpanded() {
 							or both (depending on which fields are filled out),
 							and subsequently added to the content calendar.
 						</p>
-						<p className="mt-6">
+						<p className="mt-4 lg:mt-6">
 							Custom event colors are also supported, allowing
 							users to visually distinguish between different
 							types of events:
 						</p>
-						<div className="flex flex-row items-center gap-6">
+						<div className="flex flex-col-reverse lg:flex-row items-center gap-6">
 							<Image
 								src="/bpc/colorPicker-dark.png"
 								alt="Color picker screenshot"
@@ -147,7 +147,7 @@ export function CalendarExpanded() {
 							</div>
 						</div>
 					</div>
-					<div className="w-full flex flex-col gap-6 pl-6">
+					<div className="w-full flex flex-col gap-6 lg:pl-6 py-4 lg:py-0 max-h-[30vh] lg:max-h-full overflow-y-auto">
 						<Image
 							src="/bpc/calendar-light.png"
 							alt="Calendar screenshot light mode"

@@ -1,5 +1,4 @@
 import {
-	ChatCircleDotsIcon,
 	EnvelopeSimpleIcon,
 	GithubLogoIcon,
 	LinkedinLogoIcon,
@@ -23,11 +22,6 @@ export const links = [
 		name: "About Me",
 		href: "/about-me",
 		icon: PersonIcon,
-	},
-	{
-		name: "Blog",
-		href: "/blog",
-		icon: ChatCircleDotsIcon,
 	},
 	{
 		name: "GitHub",

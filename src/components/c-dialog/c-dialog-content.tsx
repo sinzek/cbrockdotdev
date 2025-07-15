@@ -49,7 +49,7 @@ export function CDialogContent({
 					{...overlayProps}
 					ref={overlayRef}
 					className={cn(
-						"fixed inset-0 w-screen h-screen z-50 flex items-center justify-center backdrop-blur-[3px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+						"fixed inset-0 w-screen h-screen z-100 flex items-center justify-center backdrop-blur-[3px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 						overlayProps?.className
 					)}
 					onClick={(e) => {
@@ -70,7 +70,7 @@ export function CDialogContent({
 					<div
 						{...contentProps}
 						className={cn(
-							"relative w-[70vw] px-12 py-16 bg-background rounded-lg shadow-xl border border-red/10 shadow-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+							"relative w-screen z-100 lg:w-[70vw] h-screen lg:h-auto overflow-y-auto px-5 lg:px-12 py-8 lg:py-16 bg-background rounded-lg shadow-xl border border-red/10 shadow-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
 							contentProps?.className
 						)}
 						onClick={(e) => {
@@ -84,7 +84,7 @@ export function CDialogContent({
 							<Button
 								variant="icon"
 								size="icon"
-								className="absolute top-4 right-4 z-10"
+								className="absolute top-2 right-2 lg:top-4 lg:right-4 z-10"
 								onClick={() => {
 									onCloseButtonClick?.();
 									setIsOpen(false);

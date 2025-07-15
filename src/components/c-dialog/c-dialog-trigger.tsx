@@ -32,7 +32,7 @@ export function CDialogTrigger({
 		<Comp
 			data-slot="button"
 			onClick={() => setIsOpen(!isOpen)}
-			className={cn(buttonVariants({ variant, size, className }))}
+			className={cn("z-10", buttonVariants({ variant, size, className }))}
 		>
 			{children}
 		</Comp>

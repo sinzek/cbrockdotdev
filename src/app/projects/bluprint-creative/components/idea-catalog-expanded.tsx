@@ -15,8 +15,8 @@ export function IdeaCatalogExpanded() {
 				Read more
 			</CDialogTrigger>
 			<CDialogContent>
-				<div className="grid grid-cols-1 lg:grid-cols-2">
-					<div className="w-full flex flex-col gap-6 pr-6">
+				<div className="grid grid-cols-1 gap-4 lg:gap-0 lg:grid-cols-2">
+					<div className="w-full flex flex-col gap-6 lg:pr-6 lg:py-0 py-2 lg:max-h-full max-h-[30vh] overflow-y-auto">
 						<Image
 							src="/bpc/ideaGrid-dark.png"
 							alt="Idea catalog screenshot dark mode"
@@ -32,8 +32,8 @@ export function IdeaCatalogExpanded() {
 							className="rounded-lg border border-foreground/10"
 						/>
 					</div>
-					<div className="flex flex-col gap-4 max-h-[71vh] overflow-y-auto pl-6 pr-2 text-base 4xl:text-lg font-light font-sans text-foreground/75">
-						<h2 className="text-3xl font-semibold font-header text-foreground mb-3">
+					<div className="flex flex-col gap-4 max-h-[60vh] lg:max-h-[71vh] overflow-y-auto lg:pl-6 pr-2 pb-12 lg:pb-0 text-base 4xl:text-lg font-light font-sans text-foreground/75">
+						<h2 className="text-2xl lg:text-3xl font-semibold font-header text-foreground lg:mb-3 bg-background/90 sticky top-0 pb-2 backdrop-blur-[2px]">
 							<LightbulbFilamentIcon
 								className="inline mr-2.5 mb-1"
 								weight="fill"
@@ -45,7 +45,7 @@ export function IdeaCatalogExpanded() {
 							all of a user&apos;s ideas in the currently active
 							collection. It has the following capabilities:
 						</p>
-						<ul className="list-disc pl-6 space-y-2">
+						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
 								<strong className="text-red font-bold">
 									Filtering:
@@ -61,10 +61,10 @@ export function IdeaCatalogExpanded() {
 								</p>
 								<Image
 									src="/bpc/searchFiltering-dark.png"
-									alt="Quick edit menu dark mode"
+									alt="Search filtering screenshot dark mode"
 									width={685}
 									height={442}
-									className="max-w-[560px] mt-2 rounded-md w-3/4"
+									className="w-full lg:max-w-[560px] mt-2 rounded-md lg:w-3/4"
 								/>
 							</li>
 							<li>
@@ -89,7 +89,7 @@ export function IdeaCatalogExpanded() {
 								<iframe
 									width="560"
 									height="315"
-									className="mt-2 rounded-md w-3/4"
+									className="mt-2 rounded-md w-full lg:w-3/4"
 									src="https://www.youtube-nocookie.com/embed/MZcfGmeLj_Y?si=F6NbqbK_Ug4pXvUV"
 									title="YouTube video player"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -125,7 +125,7 @@ export function IdeaCatalogExpanded() {
 									alt="Quick edit menu dark mode"
 									width={685}
 									height={442}
-									className="max-w-[560px] mt-2 rounded-md w-3/4"
+									className="w-full lg:max-w-[560px] mt-2 rounded-md lg:w-3/4"
 								/>
 							</li>
 							<li>

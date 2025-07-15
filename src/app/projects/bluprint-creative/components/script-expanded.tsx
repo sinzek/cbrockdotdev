@@ -11,9 +11,9 @@ export function ScriptExpanded() {
 				Read more
 			</CDialogTrigger>
 			<CDialogContent>
-				<div className="grid grid-cols-1 lg:grid-cols-3">
-					<div className="col-span-2 flex flex-col gap-4 max-h-[71vh] overflow-y-auto pr-2 text-base 4xl:text-lg font-light font-sans text-foreground/75">
-						<h2 className="text-3xl font-semibold font-header text-foreground mb-3">
+				<div className="lg:grid flex flex-col-reverse lg:grid-cols-3 lg:gap-0 gap-2">
+					<div className="lg:col-span-2 flex flex-col gap-4 max-h-[60vh] lg:max-h-[71vh] overflow-y-auto lg:pr-2 text-base 4xl:text-lg font-light font-sans text-foreground/75">
+						<h2 className="text-2xl lg:text-3xl font-semibold font-header text-foreground lg:mb-3 pb-2 bg-background/90 sticky top-0 backdrop-blur-[2px]">
 							<ScrollIcon
 								className="inline mr-2.5 mb-1"
 								weight="fill"
@@ -28,7 +28,7 @@ export function ScriptExpanded() {
 							a template, and a distraction-free mode that makes
 							the script full-screen.
 						</p>
-						<ul className="list-disc pl-6 space-y-2">
+						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
 								<strong className="text-red font-bold">
 									Markdown support:
@@ -77,7 +77,7 @@ export function ScriptExpanded() {
 								allowing users to apply styles to make their
 								scripts more readable. It includes the following
 								options:
-								<ul className="list-disc pl-6 space-y-1 mt-2">
+								<ul className="list-[circle] pl-6 space-y-1 mt-2">
 									<li>Bold</li>
 									<li>Italic</li>
 									<li>Underline</li>
@@ -97,7 +97,7 @@ export function ScriptExpanded() {
 							</li>
 						</ul>
 					</div>
-					<div className="w-full flex flex-col gap-6 pl-2">
+					<div className="w-full flex flex-col gap-6 lg:pl-2 lg:max-h-full max-h-[30vh] overflow-y-auto lg:py-0 py-2">
 						<Image
 							src="/bpc/scriptEditorShowcase-light.png"
 							alt="Script editor screenshot light mode"

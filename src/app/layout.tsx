@@ -97,7 +97,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased`}
+				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased overflow-hidden`}
 			>
 				<Providers>
 					<div className="w-dscreen max-w-dscreen overflow-x-hidden min-h-dscreen h-screen gap-4">
