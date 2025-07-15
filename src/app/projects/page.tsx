@@ -10,7 +10,7 @@ export default async function ProjectsPage() {
 		<div className="flex w-full max-w-4xl flex-col gap-20">
 			<section className="flex flex-col gap-12">
 				<h1 className="text-4xl font-semibold font-header">
-					I&apos;ve created{" "}
+					I&apos;ve built and helped scale{" "}
 					<span className="bg-clip-text text-transparent bg-gradient-to-r from-red to-yellow">
 						full-stack applications
 					</span>{" "}

@@ -34,7 +34,7 @@ export default function Projects({
 										alt={`Screenshot of ${project.title}`}
 										width={1280}
 										height={720}
-										className="object-contain aspect-video"
+										className="object-contain aspect-video border-b border-foreground/10"
 									/>
 								) : (
 									<div className="aspect-video bg-red/50 flex items-center justify-center">
@@ -43,7 +43,7 @@ export default function Projects({
 										</p>
 									</div>
 								)}
-								<div className=" h-full bg-gradient-to-b from-foreground/5 to-foreground/10 to-5% px-4 pt-2 pb-4 space-y-2 rounded-b-lg">
+								<div className="h-full bg-gradient-to-b from-foreground/5 to-foreground/10 to-5% px-4 pt-2 pb-16 space-y-2 rounded-b-lg">
 									<div className="w-full flex flex-row items-center justify-between">
 										<h3 className="group-hover:text-red font-header transition-all duration-200 text-2xl">
 											{project.title}
@@ -60,15 +60,17 @@ export default function Projects({
 										{project.description}
 									</p>
 
-									<div className="flex flex-row items-center gap-2 mt-6">
-										<Link
-											href={`/projects/${project.slug}`}
-										>
-											<Button variant="default">
-												Read more
-												<ArrowsOutIcon />
-											</Button>
-										</Link>
+									<div className="absolute flex flex-row items-center gap-2 bottom-4">
+										{project.slug !== "null" && (
+											<Link
+												href={`/projects/${project.slug}`}
+											>
+												<Button variant="default">
+													Read more
+													<ArrowsOutIcon />
+												</Button>
+											</Link>
+										)}
 										{project.link && (
 											<Link
 												href={project.link}

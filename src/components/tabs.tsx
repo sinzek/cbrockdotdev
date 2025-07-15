@@ -14,11 +14,25 @@ export const Tabs = () => {
 			{pathname !== "/" && (
 				<div className="flex flex-col items-center justify-center gap-1 mb-12 max-w-5xl w-full pt-18">
 					<div className="flex flex-row items-center justify-center gap-4 w-full">
-						<Link href="/">
-							<button className="text-lg font-sans font-light flex flex-row items-center justify-between gap-1 px-2 py-0.5 rounded-full cursor-pointer hover:text-red transition-all duration-200">
-								<ArrowLeftIcon weight="regular" size={20} />
-							</button>
-						</Link>
+						<button
+							type="button"
+							title="Go back"
+							onClick={() => {
+								if (
+									pathname === "/projects" ||
+									pathname === "/about-me" ||
+									pathname === "/blog"
+								) {
+									window.location.href = "/";
+								} else {
+									window.history.back();
+								}
+							}}
+							aria-label="Go back"
+							className="text-lg font-sans font-light flex flex-row items-center justify-between gap-1 px-2 py-0.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
+						>
+							<ArrowLeftIcon weight="regular" size={20} />
+						</button>
 						{links.map((link) => {
 							const Icon = link.icon;
 
@@ -34,11 +48,7 @@ export const Tabs = () => {
 											? "noopener noreferrer"
 											: undefined
 									}
-									className={cn(
-										pathname.startsWith(link.href)
-											? "pointer-events-none"
-											: "cursor-pointer"
-									)}
+									title={link.name}
 								>
 									<span
 										className={cn(
@@ -51,7 +61,7 @@ export const Tabs = () => {
 										<Icon
 											weight={
 												pathname.startsWith(link.href)
-													? "fill"
+													? "duotone"
 													: "regular"
 											}
 											size={20}

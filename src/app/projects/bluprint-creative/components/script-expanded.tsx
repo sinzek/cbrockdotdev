@@ -1,4 +1,4 @@
-import { EyeIcon, ScrollIcon, WrenchIcon } from "@phosphor-icons/react";
+import { EyeIcon, ScrollIcon } from "@phosphor-icons/react";
 import React from "react";
 import Image from "next/image";
 import { CDialog, CDialogContent, CDialogTrigger } from "@/components/c-dialog";
@@ -94,23 +94,6 @@ export function ScriptExpanded() {
 									<li>Images</li>
 									<li>Text alignment</li>
 								</ul>
-							</li>
-						</ul>
-						<p className="mt-4 text-xl font-semibold text-foreground">
-							<WrenchIcon
-								weight="fill"
-								className="inline mr-1 mb-0.5"
-							/>
-							WIP features
-						</p>
-						<ul className="list-disc pl-6 space-y-2">
-							<li>
-								<strong className="text-yellow font-bold">
-									Table and Kanban views:
-								</strong>{" "}
-								The idea catalog will soon support table and
-								kanban views to make switching from another
-								service that supports these views easier.
 							</li>
 						</ul>
 					</div>
