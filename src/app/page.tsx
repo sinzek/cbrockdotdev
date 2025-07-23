@@ -18,14 +18,14 @@ export default function Home() {
 				<GitHubLink />
 			</div>
 			<AnimationWrapper direction="up">
-				<div className="flex flex-col lg:bg-gradient-to-b lg:from-accent/40 lg:to-accent/15 lg:to-10% px-5 py-4 lg:py-5 lg:pl-5 lg:pr-3 rounded-4xl lg:border border-accent/40 border-t-accent lg:shadow-md lg:shadow-black">
+				<div className="flex flex-col items-center lg:items-start justify-center lg:bg-gradient-to-b lg:from-accent/40 lg:to-accent/15 lg:to-10% px-3 py-4 lg:py-5 lg:pl-5 lg:pr-3 rounded-4xl lg:border border-accent/40 border-t-accent lg:shadow-md lg:shadow-black">
 					<div className="flex flex-row items-center gap-3 lg:gap-6 justify-start">
 						<Image
 							src="https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/ChaseBrock.jpg"
 							alt="A picture of me"
 							width={146}
 							height={146}
-							className="object-cover object-top rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark size-[120px] lg:size-[150px]"
+							className="object-cover object-top rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark size-[100px] lg:size-[150px]"
 						/>
 						<div className="flex flex-col text-left gap-1">
 							<h1 className="text-[45px]/13 lg:text-[64px]/18 font-semibold font-metal bg-clip-text text-transparent bg-gradient-to-b from-white from-25% to-white/70 to-60%">
@@ -61,7 +61,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="flex flex-row max-w-lg flex-wrap items-center justify-start gap-2 mt-3 lg:mt-6">
+					<div className="flex flex-row max-w-lg flex-wrap items-center justify-center lg:justify-start gap-2 mt-4 lg:mt-6">
 						{links.map((link, index) => {
 							const Icon = link.icon;
 							return (
