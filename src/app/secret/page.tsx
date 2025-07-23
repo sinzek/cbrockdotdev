@@ -3,8 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import {
-	PlusIcon,
-	ChatCircleDotsIcon,
 	ReadCvLogoIcon,
 	GithubLogoIcon,
 	ArrowUpRightIcon,
@@ -24,7 +22,7 @@ export default function SecretPage() {
 		<>
 			<Toaster />
 
-			<div className="flex w-full max-w-4xl flex-col gap-20">
+			<div className="flex w-full max-w-4xl flex-col gap-20 p-4 lg:p-0">
 				{ConfirmDialog}
 				<section className="flex flex-col gap-12">
 					<h1 className="text-4xl font-semibold font-header">
@@ -35,14 +33,7 @@ export default function SecretPage() {
 							open={newProjectOpen}
 							onOpenChange={setNewProjectOpen}
 						/>
-						<Button className="w-fit" size="lg">
-							<ChatCircleDotsIcon
-								weight="fill"
-								className="size=5"
-							/>
-							Create new blog post
-							<PlusIcon className="size-4" weight="bold" />
-						</Button>
+
 						<Button className="w-fit" size="lg">
 							<ReadCvLogoIcon weight="fill" className="size=5" />
 							Upload latest resume

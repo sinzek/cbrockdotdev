@@ -13,15 +13,17 @@ export const links = [
 		href: "/projects",
 		icon: BriefcaseIcon,
 	},
-	{
-		name: "Resume",
-		href: "/chase-brock-resume.pdf",
-		icon: ReadCvLogoIcon,
-	},
+
 	{
 		name: "About Me",
 		href: "/about-me",
 		icon: PersonIcon,
+	},
+	{
+		name: "Resume",
+		href: "/chase-brock-resume-2025.pdf",
+		icon: ReadCvLogoIcon,
+		externalLink: true,
 	},
 	{
 		name: "GitHub",
