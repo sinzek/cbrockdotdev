@@ -109,7 +109,9 @@ export default function AboutMePage() {
 									className="size-5 shrink-0"
 									weight="duotone"
 								/>
-								Email me:
+								<span className="hidden lg:inline">
+									Email me:
+								</span>
 							</span>
 							<Link
 								href="mailto:chase.p.brock@gmail.com"
@@ -127,7 +129,9 @@ export default function AboutMePage() {
 									className="size-5 shrink-0"
 									weight="duotone"
 								/>
-								Let&apos;s connect:
+								<span className="hidden lg:inline">
+									Let&apos;s connect:
+								</span>
 							</span>
 							<Link
 								href="https://www.linkedin.com/in/chasepbrock"
@@ -145,7 +149,9 @@ export default function AboutMePage() {
 									className="size-5 shrink-0"
 									weight="duotone"
 								/>
-								Follow me:
+								<span className="hidden lg:inline">
+									Follow me:
+								</span>
 							</span>
 							<Link
 								href="https://github.com/chasepbrock"
