@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useAnimate } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useSound } from "use-sound";
 
 export default function Home() {
@@ -22,6 +22,8 @@ export default function Home() {
 	const imgOneRef = useRef<HTMLImageElement>(null);
 	const imgTwoRef = useRef<HTMLImageElement>(null);
 	const resetRef = useRef<HTMLDivElement>(null);
+
+	const [imageLoading, setImageLoading] = useState(true);
 
 	const [playScrape, { stop, sound }] = useSound(
 		"/sounds/concrete-scrape.mp3",
@@ -59,17 +61,14 @@ export default function Home() {
 	};
 
 	const handleSecretClick = () => {
-		// 1. Show hand image 1 at state 1, then pan to state 2
-		// 1.5. Hide main card
-		// 2. Show hand image 2 at state 1, then pan to state 2
-		// (like a hand grabbing the card and taking it away, revealing something behind it)
 		if (!imgOneRef.current || !imgTwoRef.current || !resetRef.current)
 			return;
 
 		imgOneRef.current.style.opacity = "1";
 
 		playScrape();
-		setTimeout(() => fadeVolume(0.8, 300), 100);
+		sound.volume(0);
+		setTimeout(() => fadeVolume(0.7, 300), 100);
 
 		animate(
 			imgOneRef.current,
@@ -83,7 +82,7 @@ export default function Home() {
 		);
 
 		setTimeout(() => {
-			fadeVolume(0, 2500);
+			fadeVolume(0, 100);
 
 			playCrack();
 
@@ -115,7 +114,7 @@ export default function Home() {
 
 				setTimeout(() => {
 					playScrape();
-					fadeVolume(0.8, 300);
+					fadeVolume(0, 2500);
 				}, 1000);
 
 				animate(
@@ -129,7 +128,7 @@ export default function Home() {
 					}
 				);
 			}
-		}, 2500);
+		}, 4000);
 
 		resetRef.current.style.pointerEvents = "auto";
 		resetRef.current.style.display = "flex";
@@ -193,7 +192,7 @@ export default function Home() {
 				className="pointer-events-none absolute opacity-0 top-[45%] -translate-y-1/2 z-12 scale-300 will-change-transform"
 			/>
 			<div
-				className="absolute top-1/2 right-1/2 -translate-y-1/2 -translate-x-1/2 opacity-0 z-20 flex items-center justify-center pointer-events-none"
+				className="absolute right-1/2 -translate-y-1/2 opacity-0 z-20 flex items-center justify-center pointer-events-none"
 				ref={resetRef}
 			>
 				<Button variant="confirm" onClick={resetAnimation}>
@@ -211,13 +210,19 @@ export default function Home() {
 						ref={scope}
 					>
 						<div className="flex flex-row items-center gap-3 lg:gap-6 justify-start">
-							<Image
-								src="https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/ChaseBrock.jpg"
-								alt="A picture of me"
-								width={146}
-								height={146}
-								className="object-cover object-top rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark size-[100px] lg:size-[150px]"
-							/>
+							<div className="relative">
+								{imageLoading && (
+									<div className="absolute inset-0 flex items-center justify-center bg-black rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark" />
+								)}
+								<Image
+									src="https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/ChaseBrock.jpg"
+									alt="A picture of me"
+									width={146}
+									height={146}
+									onLoad={() => setImageLoading(false)}
+									className="object-cover object-top rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark size-[100px] lg:size-[150px]"
+								/>
+							</div>
 							<div className="flex flex-col text-left gap-1">
 								<h1 className="text-[45px]/13 lg:text-[64px]/18 font-semibold font-metal bg-clip-text text-transparent bg-gradient-to-b from-white from-25% to-white/70 to-60%">
 									Chase Brock

@@ -70,9 +70,9 @@ export const metadata: Metadata = {
 		],
 	},
 	icons: {
-		icon: "/rocketLaunchWhite.svg",
-		shortcut: "/rocketLaunchWhite.svg",
-		apple: "/rocketLaunchWhite.svg",
+		icon: "/c-favicon.png",
+		shortcut: "/c-favicon.png",
+		apple: "/c-favicon.png",
 	},
 	manifest: "/site.webmanifest",
 	category: "technology",
@@ -100,7 +100,7 @@ export default function RootLayout({
 				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased overflow-hidden`}
 			>
 				<Providers>
-					<div className="w-dscreen max-w-dscreen overflow-x-hidden min-h-dscreen h-screen gap-4">
+					<div className="w-screen max-w-screen overflow-hidden min-h-screen h-screen gap-4">
 						<div className="flex flex-col items-center justify-start w-full h-full mx-auto">
 							<Tabs />
 							{children}
