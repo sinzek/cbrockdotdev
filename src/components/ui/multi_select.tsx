@@ -1,8 +1,8 @@
+import { cn } from "@/lib/utils";
+import { CaretDownIcon } from "@phosphor-icons/react";
 import React from "react";
 import { Input } from "./input";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
-import { cn } from "@/lib/utils";
-import { CaretDownIcon } from "@phosphor-icons/react";
 
 interface MultiSelectProps {
 	open: boolean;
@@ -27,9 +27,7 @@ export function MultiSelect({
 }: MultiSelectProps) {
 	const [searchQuery, setSearchQuery] = React.useState("");
 
-	const filteredOptions = options.filter((option) =>
-		option.toLowerCase().includes(searchQuery.toLowerCase())
-	);
+	const filteredOptions = options.filter((option) => option.toLowerCase().includes(searchQuery.toLowerCase()));
 
 	return (
 		<Popover open={open} onOpenChange={onOpenChange} modal={false}>
@@ -44,9 +42,7 @@ export function MultiSelect({
 					{selectedOptions.length > 0 ? (
 						selectedOptions.join(", ")
 					) : (
-						<span className="text-foreground/50">
-							{placeholder || "Select options"}
-						</span>
+						<span className="text-foreground/50">{placeholder || "Select options"}</span>
 					)}
 					<span
 						className={cn(
@@ -54,24 +50,18 @@ export function MultiSelect({
 							open && "-rotate-90 text-foreground"
 						)}
 					>
-						<CaretDownIcon weight="fill" size={16} />
+						<CaretDownIcon weight="duotone" size={16} />
 					</span>
 				</button>
 			</PopoverTrigger>
-			<PopoverContent
-				className="p-1"
-				onPointerDownOutside={(e) => e.preventDefault()}
-			>
+			<PopoverContent className="p-1" onPointerDownOutside={(e) => e.preventDefault()}>
 				<Input
 					className="w-full mb-2"
 					placeholder="🔍 Search..."
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
 				/>
-				<div
-					className="max-h-72 overflow-y-auto pr-1 space-y-0.5"
-					onWheel={(e) => e.stopPropagation()}
-				>
+				<div className="max-h-72 overflow-y-auto pr-1 space-y-0.5" onWheel={(e) => e.stopPropagation()}>
 					{filteredOptions.map((option) => (
 						<div
 							key={option}

@@ -5,15 +5,10 @@ import { GitHubLink } from "@/components/github-link";
 import { Button } from "@/components/ui/button";
 import { links } from "@/lib/constants";
 import { SmileyIcon } from "@phosphor-icons/react";
-import {
-	CodeIcon,
-	GraduationCapIcon,
-	HouseLineIcon,
-	ArrowUpRightIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRightIcon, CodeIcon, GraduationCapIcon, HouseLineIcon } from "@phosphor-icons/react/dist/ssr";
+import { useAnimate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useAnimate } from "framer-motion";
 import { useRef, useState } from "react";
 import { useSound } from "use-sound";
 
@@ -25,13 +20,10 @@ export default function Home() {
 
 	const [imageLoading, setImageLoading] = useState(true);
 
-	const [playScrape, { stop, sound }] = useSound(
-		"/sounds/concrete-scrape.mp3",
-		{
-			interrupt: true,
-			volume: 0,
-		}
-	);
+	const [playScrape, { stop, sound }] = useSound("/sounds/concrete-scrape.mp3", {
+		interrupt: true,
+		volume: 0,
+	});
 	const [playCrack] = useSound("/sounds/crack.mp3");
 
 	const fadeVolume = (target: number, duration: number = 500) => {
@@ -44,10 +36,7 @@ export default function Home() {
 			const currentVolume = sound.volume();
 			const newVolume = currentVolume + volumeStep;
 
-			if (
-				(volumeStep > 0 && newVolume >= target) ||
-				(volumeStep < 0 && newVolume <= target)
-			) {
+			if ((volumeStep > 0 && newVolume >= target) || (volumeStep < 0 && newVolume <= target)) {
 				sound.volume(target);
 				clearInterval(interval);
 				if (target === 0) {
@@ -61,8 +50,7 @@ export default function Home() {
 	};
 
 	const handleSecretClick = () => {
-		if (!imgOneRef.current || !imgTwoRef.current || !resetRef.current)
-			return;
+		if (!imgOneRef.current || !imgTwoRef.current || !resetRef.current) return;
 
 		imgOneRef.current.style.opacity = "1";
 
@@ -146,13 +134,7 @@ export default function Home() {
 	};
 
 	const resetAnimation = () => {
-		if (
-			!imgOneRef.current ||
-			!imgTwoRef.current ||
-			!scope.current ||
-			!resetRef.current
-		)
-			return;
+		if (!imgOneRef.current || !imgTwoRef.current || !scope.current || !resetRef.current) return;
 		imgOneRef.current.style.opacity = "0";
 		imgTwoRef.current.style.opacity = "0";
 		resetRef.current.style.opacity = "0";
@@ -238,7 +220,7 @@ export default function Home() {
 									</span>
 									<span className="pl-2 pr-3 py-0.5 rounded-md bg-gradient-to-b from-red/25 to-red/15 to-30% inline-flex w-fit flex-row items-center border border-red/15 border-t-red/40">
 										<GraduationCapIcon
-											weight="fill"
+											weight="duotone"
 											size={20}
 											className="inline mr-1 lg:mr-2 size-[15px] lg:size-[20px]"
 										/>
@@ -247,13 +229,11 @@ export default function Home() {
 								</div>
 								<div className="flex flex-row items-center gap-2 text-foreground/75">
 									<HouseLineIcon
-										weight="fill"
+										weight="duotone"
 										size={20}
 										className="size-[15px] lg:size-[20px] mt-0.4 lg:mt-0"
 									/>
-									<p className="text-sm lg:text-lg font-header font-semibold">
-										Houston, TX
-									</p>
+									<p className="text-sm lg:text-lg font-header font-semibold">Houston, TX</p>
 								</div>
 							</div>
 						</div>
@@ -268,16 +248,8 @@ export default function Home() {
 									>
 										<Link
 											href={link.href}
-											target={
-												link.externalLink
-													? "_blank"
-													: "_self"
-											}
-											rel={
-												link.externalLink
-													? "noopener noreferrer"
-													: undefined
-											}
+											target={link.externalLink ? "_blank" : "_self"}
+											rel={link.externalLink ? "noopener noreferrer" : undefined}
 										>
 											<Button
 												variant="default"
@@ -285,11 +257,7 @@ export default function Home() {
 												aria-label={link.name}
 												title={link.name}
 											>
-												<Icon
-													weight={"regular"}
-													size={20}
-													className="inline"
-												/>
+												<Icon weight={"regular"} size={20} className="inline" />
 												{link.name}
 												{link.externalLink && (
 													<ArrowUpRightIcon
@@ -303,11 +271,7 @@ export default function Home() {
 									</AnimationWrapper>
 								);
 							})}
-							<AnimationWrapper
-								key={`nav-secret`}
-								delay={links.length * 0.1}
-								className="inline-block"
-							>
+							<AnimationWrapper key={`nav-secret`} delay={links.length * 0.1} className="inline-block">
 								<Button
 									variant="default"
 									className="dual-shadow-sm-dark"
@@ -315,11 +279,7 @@ export default function Home() {
 									title="Secret"
 									aria-label="Secret"
 								>
-									<SmileyIcon
-										weight={"regular"}
-										size={20}
-										className="inline"
-									/>
+									<SmileyIcon weight={"regular"} size={20} className="inline" />
 									Secret
 								</Button>
 							</AnimationWrapper>

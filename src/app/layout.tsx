@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
-import { Nunito, Metal_Mania } from "next/font/google";
-import "./globals.css";
-import { Providers } from "../providers";
 import { Tabs } from "@/components/tabs";
-import { Noto_Serif } from "next/font/google";
+import type { Metadata } from "next";
+import { Metal_Mania, Noto_Serif, Nunito } from "next/font/google";
+import { Providers } from "../providers";
+import "./globals.css";
 
 const nunito = Nunito({
 	variable: "--font-nunito-sans",
@@ -45,8 +44,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://cbrock.dev"),
 	openGraph: {
 		title: "cbrock.dev",
-		description:
-			"Chase Brock's personal portfolio - a full-stack developer, student, and web designer.",
+		description: "Chase Brock's personal portfolio - a full-stack developer, student, and web designer.",
 		url: "https://cbrock.dev",
 		siteName: "cbrock.dev",
 		images: [
@@ -63,11 +61,8 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "cbrock.dev",
-		description:
-			"Chase Brock's personal portfolio - a full-stack developer, student, and web designer.",
-		images: [
-			"https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/chasebrock-opengraph.png",
-		],
+		description: "Chase Brock's personal portfolio - a full-stack developer, student, and web designer.",
+		images: ["https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/chasebrock-opengraph.png"],
 	},
 	icons: {
 		icon: "/c-favicon.png",
@@ -97,10 +92,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased overflow-hidden`}
+				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased overflow-x-hidden`}
 			>
 				<Providers>
-					<div className="w-screen max-w-screen overflow-hidden min-h-screen h-screen gap-4">
+					<div className="w-screen h-screen gap-4">
 						<div className="flex flex-col items-center justify-start w-full h-full mx-auto">
 							<Tabs />
 							{children}

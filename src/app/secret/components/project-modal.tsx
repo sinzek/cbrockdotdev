@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Dialog,
 	DialogContent,
@@ -9,20 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-	CheckIcon,
-	CircleNotchIcon,
-	FolderOpenIcon,
-	PlusIcon,
-	XIcon,
-} from "@phosphor-icons/react";
-import React from "react";
-import { TechnologiesSelector } from "./technologies-selector";
-import Image from "next/image";
-import { toast } from "sonner";
-import { ProjectType } from "@/lib/types";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useProjects } from "@/context/project-context";
+import { ProjectType } from "@/lib/types";
+import { CheckIcon, CircleNotchIcon, FolderOpenIcon, PlusIcon, XIcon } from "@phosphor-icons/react";
+import Image from "next/image";
+import React from "react";
+import { toast } from "sonner";
+import { TechnologiesSelector } from "./technologies-selector";
 
 interface ProjectModalProps {
 	open: boolean;
@@ -32,13 +26,7 @@ interface ProjectModalProps {
 	triggerChild?: React.ReactNode;
 }
 
-export function ProjectModal({
-	open,
-	onOpenChange,
-	project,
-	onProjectSaved,
-	triggerChild,
-}: ProjectModalProps) {
+export function ProjectModal({ open, onOpenChange, project, onProjectSaved, triggerChild }: ProjectModalProps) {
 	const isEditing = !!project;
 	const { updateProject, createProject } = useProjects();
 
@@ -67,9 +55,7 @@ export function ProjectModal({
 					photos: project.photos,
 					link: project.link,
 					blogPosts: project.blogPosts.join(", "),
-					launchDate: project.launchDate
-						? new Date(project.launchDate)
-						: undefined,
+					launchDate: project.launchDate ? new Date(project.launchDate) : undefined,
 					visible: project.visible,
 				});
 			} else {
@@ -105,9 +91,7 @@ export function ProjectModal({
 			return;
 		}
 
-		const splitBlogPosts = formData.blogPosts
-			.split(",")
-			.map((post) => post.trim());
+		const splitBlogPosts = formData.blogPosts.split(",").map((post) => post.trim());
 
 		const projectData: ProjectType = {
 			slug: formData.slug.trim(),
@@ -148,13 +132,9 @@ export function ProjectModal({
 
 				if (photosData.urls && photosData.success) {
 					// Append new photos to existing ones (for editing) or replace (for new project)
-					projectData.photos = isEditing
-						? [...projectData.photos, ...photosData.urls]
-						: photosData.urls;
+					projectData.photos = isEditing ? [...projectData.photos, ...photosData.urls] : photosData.urls;
 				} else {
-					toast.error(
-						"Error while uploading photos. Please try again."
-					);
+					toast.error("Error while uploading photos. Please try again.");
 					setUploading(false);
 					return;
 				}
@@ -207,24 +187,17 @@ export function ProjectModal({
 					triggerChild
 				) : (
 					<Button className="w-fit" size="lg">
-						<FolderOpenIcon weight="fill" className="size=5" />
-						Add new project to{" "}
-						<span className="text-yellow bg-accent px-2 rounded-sm">
-							/projects
-						</span>
+						<FolderOpenIcon weight="duotone" className="size=5" />
+						Add new project to <span className="text-yellow bg-accent px-2 rounded-sm">/projects</span>
 						<PlusIcon className="size-4" weight="bold" />
 					</Button>
 				)}
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
-					<DialogTitle>
-						{isEditing ? "Edit project" : "Create new project"}
-					</DialogTitle>
+					<DialogTitle>{isEditing ? "Edit project" : "Create new project"}</DialogTitle>
 					<DialogDescription className="hidden">
-						{isEditing
-							? "Update project details here"
-							: "This is where the magic happens"}
+						{isEditing ? "Update project details here" : "This is where the magic happens"}
 					</DialogDescription>
 				</DialogHeader>
 				<Button
@@ -239,10 +212,7 @@ export function ProjectModal({
 
 				<div className="flex flex-col gap-4 w-full">
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-title"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-title">
 							Title*
 						</label>
 						<Input
@@ -261,10 +231,7 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-description"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-description">
 							Description
 						</label>
 						<Textarea
@@ -281,16 +248,11 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-slug"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-slug">
 							Slug* (used as identifier, must be unique)
 						</label>
 						<div className="flex flex-row items-center gap-2">
-							<span className="text-sm font-sans">
-								https://www.cbrock.dev/projects/
-							</span>
+							<span className="text-sm font-sans">https://www.cbrock.dev/projects/</span>
 							<Input
 								type="text"
 								placeholder="some-project-slug"
@@ -308,10 +270,7 @@ export function ProjectModal({
 						</div>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="technologies"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="technologies">
 							Technologies
 						</label>
 						<TechnologiesSelector
@@ -326,10 +285,7 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-link"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-link">
 							Link
 						</label>
 						<Input
@@ -348,19 +304,14 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-launch-date"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-launch-date">
 							Launch date
 						</label>
 						<Input
 							type="date"
 							placeholder="Project launch date"
 							id="project-launch-date"
-							value={
-								formData.launchDate?.toISOString().split("T")[0]
-							}
+							value={formData.launchDate?.toISOString().split("T")[0]}
 							onChange={(e) =>
 								setFormData({
 									...formData,
@@ -372,10 +323,7 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-blog-posts"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-blog-posts">
 							Blog posts (links separated by commas)
 						</label>
 						<Textarea
@@ -392,10 +340,7 @@ export function ProjectModal({
 						/>
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-photos"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-photos">
 							Photos (recommended aspect ratio 16:9)
 						</label>
 						<Input
@@ -404,13 +349,8 @@ export function ProjectModal({
 							accept="image/*"
 							id="project-photos"
 							onChange={(e) => {
-								const newFiles = Array.from(
-									e.target.files || []
-								);
-								setFiles((prevFiles) => [
-									...prevFiles,
-									...newFiles,
-								]);
+								const newFiles = Array.from(e.target.files || []);
+								setFiles((prevFiles) => [...prevFiles, ...newFiles]);
 							}}
 							className="border-dashed cursor-pointer text-foreground/50"
 							disabled={uploading}
@@ -419,31 +359,20 @@ export function ProjectModal({
 						{/* display existing photos (for editing) */}
 						{isEditing && formData.photos.length > 0 && (
 							<div className="mt-2">
-								<span className="text-xs font-medium text-foreground/70">
-									Existing photos:
-								</span>
+								<span className="text-xs font-medium text-foreground/70">Existing photos:</span>
 								<div className="flex flex-wrap gap-2 mt-1">
 									{formData.photos.map((photoUrl, index) => (
-										<div
-											key={`existing-${index}`}
-											className="relative"
-										>
+										<div key={`existing-${index}`} className="relative">
 											<Image
 												src={photoUrl}
-												alt={`Existing photo ${
-													index + 1
-												}`}
+												alt={`Existing photo ${index + 1}`}
 												width={100}
 												height={100}
 												className="w-20 h-20 object-cover rounded border"
 											/>
 											<button
 												type="button"
-												onClick={() =>
-													handleRemoveExistingPhoto(
-														index
-													)
-												}
+												onClick={() => handleRemoveExistingPhoto(index)}
 												disabled={uploading}
 												className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
 											>
@@ -465,18 +394,12 @@ export function ProjectModal({
 								)}
 								<div className="flex flex-wrap gap-2 mt-1">
 									{files.map((photo, index) => {
-										const objectUrl =
-											URL.createObjectURL(photo);
+										const objectUrl = URL.createObjectURL(photo);
 										return (
-											<div
-												key={`new-${index}`}
-												className="relative"
-											>
+											<div key={`new-${index}`} className="relative">
 												<Image
 													src={objectUrl}
-													alt={`New photo ${
-														index + 1
-													}`}
+													alt={`New photo ${index + 1}`}
 													width={100}
 													height={100}
 													className="w-20 h-20 object-cover rounded border"
@@ -484,12 +407,8 @@ export function ProjectModal({
 												<button
 													type="button"
 													onClick={() => {
-														handleRemoveNewFile(
-															index
-														);
-														URL.revokeObjectURL(
-															objectUrl
-														);
+														handleRemoveNewFile(index);
+														URL.revokeObjectURL(objectUrl);
 													}}
 													disabled={uploading}
 													className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
@@ -504,10 +423,7 @@ export function ProjectModal({
 						)}
 					</div>
 					<div className="flex flex-col gap-1 w-full">
-						<label
-							className="text-sm font-semibold font-sans"
-							htmlFor="project-visibility"
-						>
+						<label className="text-sm font-semibold font-sans" htmlFor="project-visibility">
 							Visibility
 						</label>
 						<div className="flex flex-row items-center gap-2">
@@ -522,35 +438,19 @@ export function ProjectModal({
 							/>
 							<span className="text-sm font-sans">
 								Make this project visible on the public{" "}
-								<span className="text-yellow bg-accent px-1 rounded-sm">
-									/projects
-								</span>{" "}
-								page?
+								<span className="text-yellow bg-accent px-1 rounded-sm">/projects</span> page?
 							</span>
 						</div>
 					</div>
 					<div className="flex flex-row items-center justify-end gap-2 mt-6">
-						<Button
-							variant="default"
-							size="lg"
-							disabled={uploading}
-							onClick={() => onOpenChange(false)}
-						>
+						<Button variant="default" size="lg" disabled={uploading} onClick={() => onOpenChange(false)}>
 							Cancel
 							<XIcon weight="bold" className="size-4" />
 						</Button>
-						<Button
-							variant="confirm"
-							size="lg"
-							onClick={() => handleCreateProject()}
-							disabled={uploading}
-						>
+						<Button variant="confirm" size="lg" onClick={() => handleCreateProject()} disabled={uploading}>
 							{isEditing ? "Update project" : "Create project"}
 							{uploading ? (
-								<CircleNotchIcon
-									weight="bold"
-									className="size-4 animate-spin"
-								/>
+								<CircleNotchIcon weight="bold" className="size-4 animate-spin" />
 							) : (
 								<CheckIcon weight="bold" className="size-4" />
 							)}

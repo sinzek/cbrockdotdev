@@ -1,44 +1,40 @@
 "use client";
 
+import { AnimationWrapper } from "@/components/animations";
 import { Technologies } from "@/components/technologies";
-import { technologies } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { useProjects } from "@/context/project-context";
+import { technologies } from "@/lib/constants";
 import {
 	ArrowDownIcon,
 	ArrowUpRightIcon,
-	GlobeIcon,
-	CodeIcon,
-	StackIcon as Stack,
-	SparkleIcon,
 	CalendarIcon,
-	LightbulbFilamentIcon,
 	ClipboardTextIcon,
+	CodeIcon,
+	GlobeIcon,
+	LightbulbFilamentIcon,
 	ScrollIcon,
+	SparkleIcon,
+	StackIcon as Stack,
 } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import StackIcon from "tech-stack-icons";
 import { CalendarExpanded } from "./components/calendar-expanded";
 import { IdeaCatalogExpanded } from "./components/idea-catalog-expanded";
-import { technologyBreakdownList } from "./constants";
 import { IdeaEditorExpanded } from "./components/idea-editor-expanded";
 import { ScriptExpanded } from "./components/script-expanded";
-import { AnimationWrapper } from "@/components/animations";
+import { technologyBreakdownList } from "./constants";
 
 export default function BluprintCreativePage() {
 	const { projects } = useProjects();
 
-	const bpCreative = projects.find(
-		(project) => project.slug === "bluprint-creative"
-	);
+	const bpCreative = projects.find((project) => project.slug === "bluprint-creative");
 
 	if (!bpCreative) {
 		return (
 			<div className="flex items-center justify-center w-full h-screen">
-				<p className="text-2xl font-semibold text-foreground">
-					Project not found.
-				</p>
+				<p className="text-2xl font-semibold text-foreground">Project not found.</p>
 			</div>
 		);
 	}
@@ -73,25 +69,16 @@ export default function BluprintCreativePage() {
 							<p className="text-xl font-sans text-foreground/75 w-full lg:w-2/3 text-balance">
 								{bpCreative.description}
 								<span className="text-base font-light text-foreground/50 block mt-4">
-									*Due to this being a client project, I am
-									unable to provide a full open-source copy of
-									the application. However, I can provide code
-									samples and screenshots of it in action. If
-									you&apos;d like to try it out for free,
-									click &quot;Check it out&quot; below.
+									*Due to this being a client project, I am unable to provide a full open-source copy
+									of the application. However, I can provide code samples and screenshots of it in
+									action. If you&apos;d like to try it out for free, click &quot;Check it out&quot;
+									below.
 								</span>
 							</p>
 							<div className="flex flex-row items-center gap-2 mt-4">
 								{bpCreative.link && (
-									<AnimationWrapper
-										direction="up"
-										delay={0.2}
-									>
-										<Link
-											href={bpCreative.link}
-											target="_blank"
-											rel="noopener noreferrer"
-										>
+									<AnimationWrapper direction="up" delay={0.2}>
+										<Link href={bpCreative.link} target="_blank" rel="noopener noreferrer">
 											<Button variant="confirm" size="lg">
 												Check it out
 												<ArrowUpRightIcon weight="bold" />
@@ -129,32 +116,20 @@ export default function BluprintCreativePage() {
 							</div>
 							<div className="flex flex-col gap-5 w-full col-span-3">
 								<h2 className="text-4xl font-semibold font-header text-foreground">
-									<GlobeIcon
-										className="inline mr-2.5 mb-1"
-										weight="fill"
-									/>
+									<GlobeIcon className="inline mr-2.5 mb-1" weight="duotone" />
 									Overview
 								</h2>
 								<p className="font-sans font-light text-xl text-foreground/65">
-									Bluprint Creative is a full-stack web
-									application that I built independently,
-									based on client feature requests and updates
-									to the sales page. It features a modern,
-									responsive design that works seamlessly on
-									both mobile and desktop devices.
+									Bluprint Creative is a full-stack web application that I built independently, based
+									on client feature requests and updates to the sales page. It features a modern,
+									responsive design that works seamlessly on both mobile and desktop devices.
 								</p>
 								<div className="bg-gradient-to-b from-red/25 to-red/10 to-6% p-4 mt-4 border-l-6 border-t border-red/50 border-t-red/35 space-y-4 rounded-md ">
 									<h3 className="text-xl font-header text-foreground font-normal">
-										<CodeIcon
-											className="inline mr-2 mb-1"
-											weight="bold"
-										/>
+										<CodeIcon className="inline mr-2 mb-1" weight="bold" />
 										Technologies
 									</h3>
-									<Technologies
-										technologies={bpCreativeTechnologies}
-										mini
-									/>
+									<Technologies technologies={bpCreativeTechnologies} mini />
 								</div>
 							</div>
 						</section>
@@ -167,10 +142,7 @@ export default function BluprintCreativePage() {
 					<AnimationWrapper direction="right" whenInView>
 						<div className="lg:w-7xl flex flex-col gap-12">
 							<h2 className="text-4xl font-semibold font-header text-foreground text-center">
-								<Stack
-									className="inline mr-2.5 mb-1"
-									weight="fill"
-								/>
+								<Stack className="inline mr-2.5 mb-1" weight="duotone" />
 								Stack breakdown
 							</h2>
 							<div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
@@ -209,16 +181,10 @@ export default function BluprintCreativePage() {
 						</div>
 					</AnimationWrapper>
 				</section>
-				<section
-					id="features"
-					className="lg:w-7xl flex flex-col gap-12 pb-16 px-5 lg:px-0"
-				>
+				<section id="features" className="lg:w-7xl flex flex-col gap-12 pb-16 px-5 lg:px-0">
 					<AnimationWrapper direction="left" whenInView>
 						<h2 className="text-4xl font-semibold font-header text-foreground text-center">
-							<SparkleIcon
-								className="inline mr-2.5 mb-1.5"
-								weight="fill"
-							/>
+							<SparkleIcon className="inline mr-2.5 mb-1.5" weight="duotone" />
 							Features
 						</h2>
 					</AnimationWrapper>
@@ -236,21 +202,14 @@ export default function BluprintCreativePage() {
 									className="object-cover aspect-video rounded-lg pointer-events-none scale-145"
 								/>
 								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
-									<CalendarIcon
-										className="inline mr-2 mb-1"
-										weight="fill"
-									/>
-									Featureful content calendar
+									<CalendarIcon className="inline mr-2 mb-1" weight="duotone" />
+									Content calendar
 								</h3>
 								<p className="font-sans text-base lg:text-lg font-light text-foreground/75">
-									Users can create, edit, resize, and delete
-									calendar events with a drag-and-drop
-									interface. The calendar supports monthly,
-									weekly, and daily views. Hovering an event
-									will show a tooltip with the event details,
-									such as the title, release platforms, and
-									whether it is a release date or a filming
-									date.
+									Users can create, edit, resize, and delete calendar events with a drag-and-drop
+									interface. The calendar supports monthly, weekly, and daily views. Hovering an event
+									will show a tooltip with the event details, such as the title, release platforms,
+									and whether it is a release date or a filming date.
 								</p>
 								<Link
 									href="https://fullcalendar.io/docs/react"
@@ -262,10 +221,7 @@ export default function BluprintCreativePage() {
 										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
 											@fullcalendar/react
 										</span>
-										<ArrowUpRightIcon
-											className="inline ml-1"
-											weight="bold"
-										/>
+										<ArrowUpRightIcon className="inline ml-1" weight="bold" />
 									</p>
 								</Link>
 							</div>
@@ -283,23 +239,16 @@ export default function BluprintCreativePage() {
 									className="object-cover aspect-video rounded-lg pointer-events-none scale-120"
 								/>
 								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
-									<LightbulbFilamentIcon
-										className="inline mr-2 mb-1"
-										weight="fill"
-									/>
-									Robust idea catalog
+									<LightbulbFilamentIcon className="inline mr-2 mb-1" weight="duotone" />
+									Idea catalog
 								</h3>
 								<p className="font-sans text-base lg:text-lg font-light text-foreground/75">
-									Here, users can manage every idea in their
-									current active collection. Advanced sorting
-									and filtering is present, making finding a
-									specific idea as fast as possible. Bulk
-									actions are also possible, like adding a
-									specified category or deleting a set of
-									ideas at once. Not only that, but users can
-									also duplicate an idea, quickly edit an idea
-									with the quick-edit menu, pin an idea to
-									their dashboard, and more.
+									Here, users can manage every idea in their current active collection. Advanced
+									sorting and filtering is present, making finding a specific idea as fast as
+									possible. Bulk actions are also possible, like adding a specified category or
+									deleting a set of ideas at once. Not only that, but users can also duplicate an
+									idea, quickly edit an idea with the quick-edit menu, pin an idea to their dashboard,
+									and more.
 								</p>
 							</div>
 						</AnimationWrapper>
@@ -316,34 +265,21 @@ export default function BluprintCreativePage() {
 									className="object-contain aspect-video rounded-lg pointer-events-none scale-120 -translate-y-3"
 								/>
 								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
-									<ClipboardTextIcon
-										className="inline mr-2 mb-1"
-										weight="fill"
-									/>
-									Advanced custom-made fields
+									<ClipboardTextIcon className="inline mr-2 mb-1" weight="duotone" />
+									Custom fields
 								</h3>
 								<p className="font-sans text-base lg:text-lg font-light text-foreground/75">
-									From scratch (and with some help from
-									radix-ui), I created a set of form fields, a
-									task list, and a thumbnail grid that
-									actually feel both nice to use and like a
-									native application; all with a robust
-									validation and an error handling system.
+									From scratch (and with some help from radix-ui), I created a set of form fields, a
+									task list, and a thumbnail grid that actually feel both nice to use and like a
+									native application; all with a robust validation and an error handling system.
 								</p>
-								<Link
-									href="https://www.radix-ui.com/"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
+								<Link href="https://www.radix-ui.com/" target="_blank" rel="noopener noreferrer">
 									<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
 										With help from{" "}
 										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
 											@radix-ui
 										</span>
-										<ArrowUpRightIcon
-											className="inline ml-1"
-											weight="bold"
-										/>
+										<ArrowUpRightIcon className="inline ml-1" weight="bold" />
 									</p>
 								</Link>
 							</div>
@@ -361,19 +297,13 @@ export default function BluprintCreativePage() {
 									className="object-contain aspect-video rounded-lg pointer-events-none scale-135"
 								/>
 								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
-									<ScrollIcon
-										className="inline mr-2 mb-1"
-										weight="fill"
-									/>
-									Full-fledged rich script editor
+									<ScrollIcon className="inline mr-2 mb-1" weight="duotone" />
+									WYSIWYG rich script editor
 								</h3>
 								<p className="font-sans text-base lg:text-lg font-light text-foreground/75">
-									Using tiptap, I created a rich text editor
-									that allows users to write scripts with
-									formatting, headings, lists, images, and
-									more, all from the idea editor. This way, a
-									script is directly attached to an idea,
-									mitigating the &quot;endless Google
+									Using tiptap, I created a rich text editor that allows users to write scripts with
+									formatting, headings, lists, images, and more, all from the idea editor. This way, a
+									script is directly attached to an idea, mitigating the &quot;endless Google
 									Docs&quot; problem entirely.
 								</p>
 								<Link
@@ -386,10 +316,7 @@ export default function BluprintCreativePage() {
 										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
 											@tiptap/simple-editor
 										</span>
-										<ArrowUpRightIcon
-											className="inline ml-1"
-											weight="bold"
-										/>
+										<ArrowUpRightIcon className="inline ml-1" weight="bold" />
 									</p>
 								</Link>
 							</div>

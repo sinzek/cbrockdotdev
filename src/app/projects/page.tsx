@@ -3,10 +3,6 @@ import Projects from "@/components/projects";
 import { Technologies } from "@/components/technologies";
 
 export default async function ProjectsPage() {
-	// since this page is rendered on the server, we can fetch data directly here
-	// and pass it to a component as props
-	// essentially, this is where i'll fetch projects from supabase
-
 	return (
 		<div className="flex w-full max-w-4xl flex-col gap-14 lg:gap-20 pb-24 lg:px-0 px-5 lg:pt-0 pt-10">
 			<AnimationWrapper direction="right">
