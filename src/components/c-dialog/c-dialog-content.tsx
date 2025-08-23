@@ -1,10 +1,10 @@
 "use client";
 
-import { useCDialog } from ".";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { XIcon } from "@phosphor-icons/react";
 import React from "react";
+import { useCDialog } from ".";
 
 interface CDialogContentProps {
 	onEscapeKeyDown?: (event: React.KeyboardEvent) => void;
@@ -26,6 +26,18 @@ export function CDialogContent({
 	const { isOpen, setIsOpen } = useCDialog();
 	const [isMounted, setIsMounted] = React.useState(false);
 	const overlayRef = React.useRef<HTMLDivElement>(null);
+
+	React.useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "";
+		}
+
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, [isOpen]);
 
 	React.useEffect(() => {
 		if (isOpen) {
