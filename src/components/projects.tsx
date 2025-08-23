@@ -59,8 +59,8 @@ export default function Projects({
 												</p>
 											)}
 										</div>
-										<p className="text-sm font-semibold text-foreground font-sans mt-4">
-											{project.technologies.join(", ")}
+										<p className="text-sm font-bold text-red font-sans mt-4">
+											{project.technologies.sort((a, b) => a.localeCompare(b)).join(", ")}
 										</p>
 										<p className="text-base font-light text-foreground/75 font-sans mt-4">
 											{project.description}
