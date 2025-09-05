@@ -156,7 +156,7 @@ export default function Home() {
 	};
 
 	return (
-		<main className="relative flex w-full h-full items-center justify-center">
+		<main className="relative flex w-screen h-screen overflow-hidden items-center justify-center">
 			<Image
 				src="/hand-1.png"
 				alt="The evil hand"

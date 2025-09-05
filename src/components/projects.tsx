@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import { ConfirmOptions } from "@/app/secret/hooks/useConfirm";
-import { SecretProjectMenu } from "./secret-project-menu";
 import { useProjects } from "@/context/project-context";
-import { formatDateToMY } from "../lib/utils";
-import { Button } from "./ui/button";
-import { ArrowsOutIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
-import Link from "next/link";
-import { AnimationWrapper } from "./animations";
 import { useMobile } from "@/hooks/useMobile";
+import { ArrowsOutIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
+import Image from "next/image";
+import Link from "next/link";
+import { formatDateToMY } from "../lib/utils";
+import { AnimationWrapper } from "./animations";
+import { SecretProjectMenu } from "./secret-project-menu";
+import { Button } from "./ui/button";
 
 export default function Projects({
 	secret,
@@ -45,9 +45,7 @@ export default function Projects({
 										/>
 									) : (
 										<div className="aspect-video bg-red/50 flex items-center justify-center">
-											<p className="text-foreground">
-												No image available.
-											</p>
+											<p className="text-foreground">No image available.</p>
 										</div>
 									)}
 									<div className="h-full bg-gradient-to-b from-foreground/5 to-foreground/10 to-5% px-4 pt-2 pb-16 space-y-2 rounded-b-lg">
@@ -57,23 +55,19 @@ export default function Projects({
 											</h3>
 											{project.launchDate && (
 												<p className="text-xl text-foreground/70 font-extralight">
-													{formatDateToMY(
-														new Date(
-															project.launchDate
-														)
-													)}
+													{formatDateToMY(new Date(project.launchDate))}
 												</p>
 											)}
 										</div>
+										<p className="text-sm font-bold text-blue font-sans mt-4">
+											{project.technologies.sort((a, b) => a.localeCompare(b)).join(", ")}
+										</p>
 										<p className="text-base font-light text-foreground/75 font-sans mt-4">
 											{project.description}
 										</p>
-
 										<div className="absolute flex flex-row items-center gap-2 bottom-4">
 											{project.slug !== "null" && (
-												<Link
-													href={`/projects/${project.slug}`}
-												>
+												<Link href={`/projects/${project.slug}`}>
 													<Button variant="default">
 														Read more
 														<ArrowsOutIcon />
@@ -81,16 +75,9 @@ export default function Projects({
 												</Link>
 											)}
 											{project.link && (
-												<Link
-													href={project.link}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<Button
-														variant="confirm"
-														className="font-semibold"
-													>
-														Check it out
+												<Link href={project.link} target="_blank" rel="noopener noreferrer">
+													<Button variant="confirm" className="font-semibold">
+														Visit site
 														<ArrowUpRightIcon weight="bold" />
 													</Button>
 												</Link>
@@ -99,10 +86,7 @@ export default function Projects({
 									</div>
 									{secret && confirm && (
 										<div className="absolute top-4 right-4">
-											<SecretProjectMenu
-												confirm={confirm}
-												project={project}
-											/>
+											<SecretProjectMenu confirm={confirm} project={project} />
 										</div>
 									)}
 								</div>
@@ -111,11 +95,7 @@ export default function Projects({
 					})
 				) : (
 					<div className="col-span-1 lg:col-span-2 text-center">
-						{projectsLoading ? (
-							<p>Loading projects...</p>
-						) : (
-							<p>No projects found.</p>
-						)}
+						{projectsLoading ? <p>Loading projects...</p> : <p>No projects found.</p>}
 					</div>
 				)}
 			</div>

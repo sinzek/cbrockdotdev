@@ -1,11 +1,11 @@
 "use client";
+import { useMobile } from "@/hooks/useMobile";
 import { links } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import { ArrowLeftIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { useMobile } from "@/hooks/useMobile";
 import { Fragment } from "react";
 import { AnimationWrapper } from "./animations";
 
@@ -28,7 +28,7 @@ export const Tabs = () => {
 		return (
 			<>
 				{pathname !== "/" && (
-					<AnimationWrapper className="absolute bottom-8 z-50">
+					<AnimationWrapper className="fixed bottom-8 z-50">
 						<div className="px-4 rounded-full bg-background border border-accent  shadow-md shadow-black/75 will-change-transform">
 							<div className="flex flex-row items-center justify-center gap-2">
 								<button
@@ -36,16 +36,13 @@ export const Tabs = () => {
 									title="Go back"
 									onClick={goBack}
 									onTouchStart={(e) => {
-										e.currentTarget.style.transform =
-											"scale(0.85)";
+										e.currentTarget.style.transform = "scale(0.85)";
 									}}
 									onTouchEnd={(e) => {
-										e.currentTarget.style.transform =
-											"scale(1)";
+										e.currentTarget.style.transform = "scale(1)";
 									}}
 									onTouchCancel={(e) => {
-										e.currentTarget.style.transform =
-											"scale(1)";
+										e.currentTarget.style.transform = "scale(1)";
 									}}
 									aria-label="Go back"
 									className="flex items-center justify-center p-1.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
@@ -55,39 +52,25 @@ export const Tabs = () => {
 								{links.map((link, index) => {
 									const Icon = link.icon;
 									return (
-										<Fragment
-											key={`mobile-tab-${link.name}`}
-										>
+										<Fragment key={`mobile-tab-${link.name}`}>
 											<Link
 												href={link.href}
 												className={cn(
 													"relative p-1.5 rounded-full text-foreground/75 my-1 transition-all",
-													pathname.startsWith(
-														link.href
-													) &&
-														"bg-red/30 text-foreground"
+													pathname.startsWith(link.href) && "bg-red/30 text-foreground"
 												)}
 												onTouchStart={(e) => {
-													e.currentTarget.style.transform =
-														"scale(0.85)";
+													e.currentTarget.style.transform = "scale(0.85)";
 												}}
 												onTouchEnd={(e) => {
-													e.currentTarget.style.transform =
-														"scale(1)";
+													e.currentTarget.style.transform = "scale(1)";
 												}}
 												onTouchCancel={(e) => {
-													e.currentTarget.style.transform =
-														"scale(1)";
+													e.currentTarget.style.transform = "scale(1)";
 												}}
 											>
 												<Icon
-													weight={
-														pathname.startsWith(
-															link.href
-														)
-															? "duotone"
-															: "regular"
-													}
+													weight={pathname.startsWith(link.href) ? "duotone" : "regular"}
 													size={24}
 												/>
 											</Link>
@@ -129,14 +112,8 @@ export const Tabs = () => {
 								<Link
 									href={link.href}
 									key={`tab-${link.name}`}
-									target={
-										link.externalLink ? "_blank" : "_self"
-									}
-									rel={
-										link.externalLink
-											? "noopener noreferrer"
-											: undefined
-									}
+									target={link.externalLink ? "_blank" : "_self"}
+									rel={link.externalLink ? "noopener noreferrer" : undefined}
 									title={link.name}
 								>
 									<span
@@ -148,20 +125,12 @@ export const Tabs = () => {
 										)}
 									>
 										<Icon
-											weight={
-												pathname.startsWith(link.href)
-													? "duotone"
-													: "regular"
-											}
+											weight={pathname.startsWith(link.href) ? "duotone" : "regular"}
 											size={20}
 										/>
 										{link.name}
 										{link.externalLink && (
-											<ArrowUpRightIcon
-												weight="regular"
-												size={16}
-												className="inline ml-1"
-											/>
+											<ArrowUpRightIcon weight="regular" size={16} className="inline ml-1" />
 										)}
 										<AnimatePresence mode="wait">
 											{pathname.startsWith(link.href) && (
