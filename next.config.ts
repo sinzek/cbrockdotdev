@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
+	redirects: async () => {
+		return [
+			{
+				source: "/resume",
+				destination: "/chase-brock-resume-2025.pdf",
+				permanent: true,
+			},
+		];
+	},
 };
 
 export default nextConfig;
