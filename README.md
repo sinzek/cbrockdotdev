@@ -20,7 +20,7 @@ this site is where i showcase my projects, write about what i'm learning, and mo
 
 ## development setup
 
-Clone the repo and install dependencies:
+clone the repo and install dependencies:
 
 ```bash
 git clone https://github.com/sinzek/cbrockdotdev.git
