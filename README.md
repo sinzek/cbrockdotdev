@@ -1,29 +1,24 @@
 # cbrock.dev
 
-Welcome to my personal portfolio website!  
-This site is where I showcase my projects, write about what I'm learning, and more.
+⚠️ still very WIP! ⚠️
 
-> **Live site:** [cbrock.dev](https://cbrock.dev)
+welcome to my personal portfolio website!
+this site is where i showcase my projects, write about what i'm learning, and more.
 
----
-
-## 🚀 Tech Stack
-
--   **Frontend & API**: [Next.js](https://nextjs.org/) + [TypeScript](https://www.typescriptlang.org/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **DB**: [Supabase](https://supabase.com/)
--   **Deployment**: [Vercel](https://vercel.com/)
+> **live site:** [cbrock.dev](https://cbrock.dev)
 
 ---
 
-## 📁 Features
+## tech stack
 
--   🖼️ **Project Gallery** - Browse highlights of my work, with code breakdowns and interactive showcases.
--   📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop devices.
+-   **frontend & api**: [Next.js](https://nextjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+-   **styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **db**: [Supabase](https://supabase.com/)
+-   **deployment**: [Vercel](https://vercel.com/)
 
 ---
 
-## 🛠️ Development Setup
+## development setup
 
 Clone the repo and install dependencies:
 
