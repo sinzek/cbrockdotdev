@@ -30,7 +30,7 @@ export function CalendarExpanded() {
 						<p className="mt-4">Creating a calendar event attached to an idea is simple:</p>
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
 							<div className="flex flex-col gap-2">
-								<p className="font-semibold text-base text-red">
+								<p className="font-semibold text-base text-yellow">
 									<VideoCameraIcon weight="duotone" className="inline mb-1 mr-1.5" />
 									For filming dates
 								</p>
@@ -48,7 +48,7 @@ export function CalendarExpanded() {
 								</p>
 							</div>
 							<div className="flex flex-col gap-2">
-								<p className="font-semibold text-base text-red">
+								<p className="font-semibold text-base text-yellow">
 									<StarIcon weight="duotone" className="inline mb-1 mr-1.5" />
 									For a release date
 								</p>
@@ -100,7 +100,7 @@ export function CalendarExpanded() {
 										href="https://www.npmjs.com/package/@uiw/react-color-colorful"
 										rel="noopener noreferrer"
 										target="_blank"
-										className="inline text-red hover:underline font-bold"
+										className="inline text-yellow hover:underline font-bold"
 									>
 										@uiw/react-color-colorful
 										<ArrowUpRightIcon className="inline ml-1" weight="bold" />

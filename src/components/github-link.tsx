@@ -18,7 +18,7 @@ export function GitHubLink() {
 					height={64}
 					className="size-6 lg:size-7 opacity-75 group-hover:opacity-100 transition-all"
 				/>
-				<span className="text-base lg:text-lg">Source code</span>
+				<span className="text-base lg:text-lg">source code</span>
 				<ArrowUpRightIcon className=" size-4 mt-0.5" />
 			</div>
 		</Link>

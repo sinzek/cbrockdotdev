@@ -1,6 +1,6 @@
 "use client";
 import { useMobile } from "@/hooks/useMobile";
-import { links } from "@/lib/constants";
+import { externalLinks, mainLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { ArrowLeftIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -45,11 +45,11 @@ export const Tabs = () => {
 										e.currentTarget.style.transform = "scale(1)";
 									}}
 									aria-label="Go back"
-									className="flex items-center justify-center p-1.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
+									className="flex items-center justify-center p-1.5 rounded-full cursor-pointer hover:text-yellow transition-all duration-200"
 								>
 									<ArrowLeftIcon weight="regular" size={20} />
 								</button>
-								{links.map((link, index) => {
+								{[...mainLinks, ...externalLinks].map((link, index) => {
 									const Icon = link.icon;
 									return (
 										<Fragment key={`mobile-tab-${link.name}`}>
@@ -57,7 +57,7 @@ export const Tabs = () => {
 												href={link.href}
 												className={cn(
 													"relative p-1.5 rounded-full text-foreground/75 my-1 transition-all",
-													pathname.startsWith(link.href) && "bg-red/30 text-foreground"
+													pathname.startsWith(link.href) && "bg-yellow/30 text-foreground"
 												)}
 												onTouchStart={(e) => {
 													e.currentTarget.style.transform = "scale(0.85)";
@@ -74,7 +74,7 @@ export const Tabs = () => {
 													size={24}
 												/>
 											</Link>
-											{index === links.length / 2 - 1 && (
+											{index === [...mainLinks, ...externalLinks].length / 2 - 1 && (
 												<div
 													className="w-[0.5px] h-11 bg-accent"
 													key={`mobile-tab-separator-${index}`}
@@ -101,11 +101,11 @@ export const Tabs = () => {
 							title="Go back"
 							onClick={goBack}
 							aria-label="Go back"
-							className="text-lg font-sans font-light flex flex-row items-center justify-between gap-1 px-2 py-0.5 rounded-full cursor-pointer hover:text-red transition-all duration-200"
+							className="text-lg font-sans font-light flex flex-row items-center justify-between gap-1 px-2 py-0.5 rounded-full cursor-pointer hover:text-yellow transition-all duration-200"
 						>
 							<ArrowLeftIcon weight="regular" size={20} />
 						</button>
-						{links.map((link) => {
+						{[...mainLinks, ...externalLinks].map((link) => {
 							const Icon = link.icon;
 
 							return (
@@ -120,8 +120,8 @@ export const Tabs = () => {
 										className={cn(
 											"relative text-lg transition-all duration-200 font-sans font-light flex flex-row items-center gap-1 px-2 py-0.5 rounded-full",
 											pathname.startsWith(link.href)
-												? "text-red"
-												: "text-foreground hover:text-red"
+												? "text-yellow"
+												: "text-foreground hover:text-yellow"
 										)}
 									>
 										<Icon
@@ -154,7 +154,7 @@ export const Tabs = () => {
 														duration: 0.2,
 													}}
 													key={`underline-${link.name}`}
-													className="absolute -bottom-[5px] w-[90%] h-px bg-red"
+													className="absolute -bottom-[5px] w-[90%] h-px bg-yellow"
 												/>
 											)}
 										</AnimatePresence>

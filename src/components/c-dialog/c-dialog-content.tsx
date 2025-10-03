@@ -42,14 +42,13 @@ export function CDialogContent({
 	React.useEffect(() => {
 		if (isOpen) {
 			setIsMounted(true);
-			// focus after mount
 			setTimeout(() => {
 				overlayRef.current?.focus();
 			}, 10);
 		} else if (isMounted) {
 			const timer = setTimeout(() => {
 				setIsMounted(false);
-			}, 140); // Adjust based on your animation duration
+			}, 140); // matches animation duration
 			return () => clearTimeout(timer);
 		}
 	}, [isOpen, isMounted]);
@@ -82,7 +81,7 @@ export function CDialogContent({
 					<div
 						{...contentProps}
 						className={cn(
-							"relative w-screen z-100 lg:w-[70vw] h-screen lg:h-auto overflow-y-auto px-5 lg:px-12 py-8 lg:py-16 bg-background rounded-lg shadow-xl border border-red/10 shadow-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+							"relative w-screen z-100 lg:w-[70vw] h-screen lg:h-auto overflow-y-auto px-5 lg:px-12 py-8 lg:py-16 bg-background rounded-lg shadow-xl border border-yellow/10 shadow-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
 							contentProps?.className
 						)}
 						onClick={(e) => {

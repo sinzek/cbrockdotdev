@@ -24,31 +24,31 @@ export function ScriptExpanded() {
 						</p>
 						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
-								<strong className="text-red font-bold">Markdown support:</strong> The script editor
+								<strong className="text-yellow font-bold">Markdown support:</strong> The script editor
 								supports Markdown syntax, allowing users to format their scripts with headings, lists,
 								and other elements easily.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Distraction-free mode:</strong> The script editor
-								includes a distraction-free mode that makes the script full-screen.
+								<strong className="text-yellow font-bold">Distraction-free mode:</strong> The script
+								editor includes a distraction-free mode that makes the script full-screen.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Autosaving:</strong> The script editor
+								<strong className="text-yellow font-bold">Autosaving:</strong> The script editor
 								automatically saves changes as users type, ensuring that no work is lost. This option
 								can be toggled on and off in the settings.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Template autofill:</strong> Users can autofill
+								<strong className="text-yellow font-bold">Template autofill:</strong> Users can autofill
 								the script from a template, which can include pre-defined sections and formatting.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Exporting:</strong> Users can export their
+								<strong className="text-yellow font-bold">Exporting:</strong> Users can export their
 								scripts in various formats, such as PDF or Word, to share with others or for printing.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Rich text formatting:</strong> The script editor
-								supports rich text formatting, allowing users to apply styles to make their scripts more
-								readable. It includes the following options:
+								<strong className="text-yellow font-bold">Rich text formatting:</strong> The script
+								editor supports rich text formatting, allowing users to apply styles to make their
+								scripts more readable. It includes the following options:
 								<ul className="list-[circle] pl-6 space-y-1 mt-2">
 									<li>Bold</li>
 									<li>Italic</li>

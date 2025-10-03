@@ -8,10 +8,7 @@ export default async function ProjectsPage() {
 			<AnimationWrapper direction="right">
 				<section className="flex flex-col lg:gap-12 gap-8">
 					<h1 className="text-3xl lg:text-4xl font-semibold font-header text-pretty">
-						I&apos;ve built and helped scale{" "}
-						<span className="bg-clip-text text-transparent bg-gradient-to-r from-red to-yellow">
-							full-stack applications
-						</span>{" "}
+						i&apos;ve built and helped scale <span className="text-yellow">full-stack applications</span>{" "}
 						using a variety of technologies.
 					</h1>
 					<Technologies />
@@ -20,7 +17,7 @@ export default async function ProjectsPage() {
 			<AnimationWrapper direction="right" delay={0.3}>
 				<section className="flex flex-col lg:gap-12 gap-8">
 					<h2 className="text-3xl lg:text-4xl font-semibold font-header">
-						Here are some of the things I&apos;ve built so far:
+						here are some of the things I&apos;ve built so far:
 					</h2>
 					<AnimationWrapper delay={0.6} direction="right">
 						<Projects />

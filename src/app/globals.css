@@ -9,7 +9,7 @@
 	--yellow: #ff9f1c;
 	--accent: oklch(0.97 0 0);
 	--radius: 0.625rem;
-	--background: oklch(0.145 0 0);
+	--background: oklch(0% 0 0);
 	--foreground: oklch(0.985 0 0);
 	--card: oklch(0.205 0 0);
 	--card-foreground: oklch(0.985 0 0);
@@ -50,8 +50,8 @@
 	--color-yellow: var(--yellow);
 	--color-accent: var(--accent);
 
-	--font-sans: var(--font-nunito-sans);
-	--font-metal: var(--font-metal-mania);
+	--font-sans: var(--font-roboto);
+	--font-oswald: var(--font-oswald);
 	--font-header: var(--font-noto-serif);
 
 	/* DSCREEN (dynamic 'screen' variant) */
@@ -112,33 +112,36 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply text-foreground;
 	}
 }
 
 @layer utilities {
 	.dual-shadow {
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
-			/* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), /* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
 	}
 
 	.dual-shadow-dark {
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
-			/* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), /* smaller, sharper shadow */ 0 12px 20px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
 	}
 
 	.dual-shadow-sm {
-		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5),
-			/* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), /* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
 	}
 
 	.dual-shadow-sm-dark {
-		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5),
-			/* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5), /* smaller, sharper shadow */ 0 4px 6px rgba(0, 0, 0, 0.5); /* larger, softer shadow */
 	}
 
 	.dual-shadow-red-hover:hover {
-		box-shadow: 0 4px 6px rgba(215, 38, 61, 0.25),
-			/* smaller, sharper shadow */ 0 12px 20px rgba(215, 38, 61, 0.25); /* larger, softer shadow */
+		box-shadow: 0 4px 6px rgba(215, 38, 61, 0.25), /* smaller, sharper shadow */ 0 12px 20px rgba(215, 38, 61, 0.25); /* larger, softer shadow */
+	}
+
+	.chase-text-stroke {
+		-webkit-text-stroke: 1px var(--color-red);
+	}
+
+	.inset-shadow-bottom {
+		box-shadow: inset 0 -4px 0px rgba(0, 0, 0, 0.5);
 	}
 }

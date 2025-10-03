@@ -1,6 +1,14 @@
 "use client";
 
+import { ProjectModal } from "@/app/secret/components/project-modal";
+import { ConfirmOptions } from "@/app/secret/hooks/useConfirm";
+import { useProjects } from "@/context/project-context";
+import { ProjectType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { DotsThreeVerticalIcon, PenIcon, TrashIcon } from "@phosphor-icons/react";
 import React from "react";
+import { Button } from "./ui/button";
+import { Checkbox } from "./ui/checkbox";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,18 +16,6 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import {
-	DotsThreeVerticalIcon,
-	PenIcon,
-	TrashIcon,
-} from "@phosphor-icons/react";
-import { ConfirmOptions } from "@/app/secret/hooks/useConfirm";
-import { Checkbox } from "./ui/checkbox";
-import { ProjectType } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import { ProjectModal } from "@/app/secret/components/project-modal";
-import { useProjects } from "@/context/project-context";
 
 export function SecretProjectMenu({
 	project,
@@ -40,9 +36,9 @@ export function SecretProjectMenu({
 			message: (
 				<span>
 					{" "}
-					Are you sure you want to delete the project &quot;
-					<span className="text-red font-bold">{project.title}</span>
-					&quot; from the portfolio? This action cannot be undone.{" "}
+					are you sure you want to delete the project &quot;
+					<span className="text-yellow font-bold">{project.title}</span>
+					&quot; from the portfolio? this action cannot be undone.{" "}
 				</span>
 			),
 		});
@@ -58,11 +54,9 @@ export function SecretProjectMenu({
 
 	const handleChangeVisibility = async (visible: boolean) => {
 		const ok = await confirm({
-			title: "Change project visibility",
-			message: `Are you sure you want to ${
-				visible
-					? "show this project on the public portfolio?"
-					: "hide this project from the public portfolio?"
+			title: "change project visibility",
+			message: `are you sure you want to ${
+				visible ? "show this project on the public portfolio?" : "hide this project from the public portfolio?"
 			}`,
 		});
 
@@ -82,28 +76,22 @@ export function SecretProjectMenu({
 		<DropdownMenu open={open} onOpenChange={setOpen}>
 			<DropdownMenuTrigger asChild>
 				<Button
-					className={cn(
-						"aspect-square p-1 rounded-sm",
-						open && "bg-red/25 border-red text-red"
-					)}
+					className={cn("aspect-square p-1 rounded-sm", open && "bg-yellow/25 border-yellow text-yellow")}
 				>
 					<DotsThreeVerticalIcon weight="bold" size={18} />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent onCloseAutoFocus={(e) => e.preventDefault()}>
 				<DropdownMenuLabel>Project actions</DropdownMenuLabel>
-				<DropdownMenuItem
-					onSelect={(e) => e.preventDefault()}
-					className="cursor-default"
-				>
+				<DropdownMenuItem onSelect={(e) => e.preventDefault()} className="cursor-default">
 					<Checkbox
-						className="group-hover:border-red size-4"
+						className="group-hover:border-yellow size-4"
 						checked={visible}
 						onCheckedChange={(checked) => {
 							handleChangeVisibility(!!checked.valueOf());
 						}}
 					/>
-					Visible?
+					visible?
 				</DropdownMenuItem>
 				<ProjectModal
 					open={editProjectOpen}
@@ -117,14 +105,14 @@ export function SecretProjectMenu({
 					triggerChild={
 						<DropdownMenuItem onSelect={(e) => e.preventDefault()}>
 							<PenIcon />
-							Edit project
+							edit project
 						</DropdownMenuItem>
 					}
 				/>
 
 				<DropdownMenuItem onSelect={handleDelete}>
 					<TrashIcon />
-					Delete project
+					delete project
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

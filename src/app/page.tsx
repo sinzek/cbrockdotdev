@@ -3,8 +3,8 @@
 import { AnimationWrapper } from "@/components/animations";
 import { GitHubLink } from "@/components/github-link";
 import { Button } from "@/components/ui/button";
-import { links } from "@/lib/constants";
-import { SmileyIcon } from "@phosphor-icons/react";
+import { mainLinks } from "@/lib/constants";
+import { EyesIcon, SmileyIcon } from "@phosphor-icons/react";
 import { ArrowUpRightIcon, CodeIcon, GraduationCapIcon, HouseLineIcon } from "@phosphor-icons/react/dist/ssr";
 import { useAnimate } from "framer-motion";
 import Image from "next/image";
@@ -188,13 +188,13 @@ export default function Home() {
 			<div className="z-10">
 				<AnimationWrapper direction="up">
 					<div
-						className="z-10 flex flex-col items-center lg:items-start justify-center lg:bg-gradient-to-b lg:from-accent/40 lg:to-accent/15 lg:to-10% px-3 py-4 lg:py-5 lg:pl-5 lg:pr-3 rounded-4xl lg:border border-accent/40 border-t-accent lg:shadow-md lg:shadow-black backdrop-blur-lg pointer-events-auto"
+						className="z-10 flex flex-col items-center lg:items-start justify-center bg-background px-3 py-4 lg:p-8 pointer-events-auto rounded-2xl"
 						ref={scope}
 					>
-						<div className="flex flex-row items-center gap-3 lg:gap-6 justify-start">
+						<div className="flex flex-row items-center gap-3 lg:gap-6 justify-center">
 							<div className="relative">
 								{imageLoading && (
-									<div className="absolute inset-0 flex items-center justify-center bg-black rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark" />
+									<div className="absolute inset-0 flex items-center justify-center bg-foreground rounded-4xl lg:rounded-5xl" />
 								)}
 								<Image
 									src="https://koslznrbedvicaugmxxi.supabase.co/storage/v1/object/public/photos/ChaseBrock.jpg"
@@ -202,43 +202,39 @@ export default function Home() {
 									width={146}
 									height={146}
 									onLoad={() => setImageLoading(false)}
-									className="object-cover object-top rounded-4xl lg:rounded-5xl border border-foreground/20 border-t-foreground/40 dual-shadow-dark size-[100px] lg:size-[150px]"
+									className="object-cover object-top rounded-md size-[100px] lg:size-[150px]"
 								/>
 							</div>
-							<div className="flex flex-col text-left gap-1">
-								<h1 className="text-[45px]/13 lg:text-[64px]/18 font-semibold font-metal bg-clip-text text-transparent bg-gradient-to-b from-white from-25% to-white/70 to-60%">
-									Chase Brock
+							<div className="flex flex-col justify-center text-left gap-1">
+								<h1 className="text-7xl tracking-tight font-oswald origin-bottom text-yellow -mt-1">
+									chase brock
 								</h1>
-								<div className="flex flex-row items-center space-x-1 lg:space-x-2 text-red text-xs lg:text-base font-medium font-sans whitespace-nowrap">
-									<span className="pl-2 pr-3 py-0.5 rounded-md bg-gradient-to-b from-red/25 to-red/15 to-30% inline-flex w-fit flex-row items-center border border-red/15 border-t-red/40">
+								<div className="mt-2 flex flex-row items-center gap-1.5 text-xs lg:text-base font-semibold font-sans test-foregroundspace-nowrap">
+									<span className="bg-blue/75 rounded-sm text-foreground flex flex-row items-center px-1.5">
 										<CodeIcon
 											weight="regular"
 											size={20}
-											className="inline mr-1 lg:mr-2 size-[15px] lg:size-[20px]"
+											className="inline mr-1 size-[15px] lg:size-[20px]"
 										/>
-										<h2>Full-Stack Developer</h2>
+										<h2>full-stack developer</h2>
 									</span>
-									<span className="pl-2 pr-3 py-0.5 rounded-md bg-gradient-to-b from-red/25 to-red/15 to-30% inline-flex w-fit flex-row items-center border border-red/15 border-t-red/40">
+									<span className="bg-blue/75 rounded-sm text-test-foreground flex flex-row items-center px-1.5">
 										<GraduationCapIcon
-											weight="duotone"
+											weight="regular"
 											size={20}
-											className="inline mr-1 lg:mr-2 size-[15px] lg:size-[20px]"
+											className="inline mr-1 size-[15px] lg:size-[20px]"
 										/>
-										<h2>Student</h2>
+										<h2>student</h2>
 									</span>
 								</div>
-								<div className="flex flex-row items-center gap-2 text-foreground/75">
-									<HouseLineIcon
-										weight="duotone"
-										size={20}
-										className="size-[15px] lg:size-[20px] mt-0.4 lg:mt-0"
-									/>
-									<p className="text-sm lg:text-lg font-header font-semibold">Houston, TX</p>
+								<div className="mt-2 flex flex-row items-center gap-2 text-foreground">
+									<HouseLineIcon weight="fill" size={16} />
+									<p className="text-sm font-sans font-semibold mt-0.5">HOUSTON, TX</p>
 								</div>
 							</div>
 						</div>
 						<div className="flex flex-row max-w-lg flex-wrap items-center justify-center lg:justify-start gap-2 mt-4 lg:mt-6">
-							{links.map((link, index) => {
+							{[...mainLinks].map((link, index) => {
 								const Icon = link.icon;
 								return (
 									<AnimationWrapper
@@ -257,7 +253,7 @@ export default function Home() {
 												aria-label={link.name}
 												title={link.name}
 											>
-												<Icon weight={"regular"} size={20} className="inline" />
+												<Icon weight="fill" size={16} className="inline" />
 												{link.name}
 												{link.externalLink && (
 													<ArrowUpRightIcon
@@ -271,7 +267,11 @@ export default function Home() {
 									</AnimationWrapper>
 								);
 							})}
-							<AnimationWrapper key={`nav-secret`} delay={links.length * 0.1} className="inline-block">
+							<AnimationWrapper
+								key={`nav-secret`}
+								delay={[...mainLinks].length * 0.1}
+								className="inline-block"
+							>
 								<Button
 									variant="default"
 									className="dual-shadow-sm-dark"
@@ -279,8 +279,8 @@ export default function Home() {
 									title="Secret"
 									aria-label="Secret"
 								>
-									<SmileyIcon weight={"regular"} size={20} className="inline" />
-									Secret
+									<EyesIcon weight="fill" size={16} className="inline" />
+									secret
 								</Button>
 							</AnimationWrapper>
 						</div>

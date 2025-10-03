@@ -104,7 +104,7 @@ export default function BluprintCreativePage() {
 							id="overview"
 							className="relative grid grid-cols-1 lg:grid-cols-7 place-items-center w-full gap-y-5 lg:gap-26"
 						>
-							<div className="absolute left-0 -top-16 w-[600px] h-[600px] bg-red/10 rounded-full blur-3xl -z-1" />
+							<div className="absolute left-0 -top-16 w-[600px] h-[600px] bg-yellow/10 rounded-full blur-3xl -z-1" />
 							<div className="flex flex-col w-full lg:col-span-4 lg:pr-20 mx-auto">
 								<Image
 									src={bpCreative.photos[1]}
@@ -124,7 +124,7 @@ export default function BluprintCreativePage() {
 									on client feature requests and updates to the sales page. It features a modern,
 									responsive design that works seamlessly on both mobile and desktop devices.
 								</p>
-								<div className="bg-gradient-to-b from-red/25 to-red/10 to-6% p-4 mt-4 border-l-6 border-t border-red/50 border-t-red/35 space-y-4 rounded-md ">
+								<div className="bg-gradient-to-b from-yellow/25 to-yellow/10 to-6% p-4 mt-4 border-l-6 border-t border-yellow/50 border-t-yellow/35 space-y-4 rounded-md ">
 									<h3 className="text-xl font-header text-foreground font-normal">
 										<CodeIcon className="inline mr-2 mb-1" weight="bold" />
 										Technologies
@@ -149,7 +149,7 @@ export default function BluprintCreativePage() {
 								{technologyBreakdownList.map((tech, index) => (
 									<div
 										key={`technology-breakdown-${tech.name}-${index}`}
-										className="group flex flex-col gap-3 w-full rounded-md p-4 lg:p-6 bg-gradient-to-b from-foreground/10 to-background/50 to-5% border border-foreground/10 border-t-foreground/25 hover:border-t-red/50 hover:border-red/25 transition-colors shadow-black/50 dual-shadow"
+										className="group flex flex-col gap-3 w-full rounded-md p-4 lg:p-6 bg-gradient-to-b from-foreground/10 to-background/50 to-5% border border-foreground/10 border-t-foreground/25 hover:border-t-yellow/50 hover:border-yellow/25 transition-colors shadow-black/50 dual-shadow"
 									>
 										<span className="flex flex-row items-center gap-1.5 lg:gap-2">
 											{tech.name === "Stripe" ? (
@@ -167,7 +167,7 @@ export default function BluprintCreativePage() {
 												/>
 											)}
 											<div className="flex flex-row items-center justify-between w-full gap-2">
-												<h4 className="text-lg lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+												<h4 className="text-lg lg:text-2xl font-semibold font-sans text-foreground group-hover:text-yellow transition-colors">
 													{tech.name}
 												</h4>
 											</div>
@@ -190,7 +190,7 @@ export default function BluprintCreativePage() {
 					</AnimationWrapper>
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 						<AnimationWrapper whenInView>
-							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-yellow/25 hover:border-t-yellow/50 transition-colors dual-shadow-dark">
 								<div className="absolute lg:top-4 lg:right-4 top-2 right-2">
 									<CalendarExpanded />
 								</div>
@@ -201,7 +201,7 @@ export default function BluprintCreativePage() {
 									height={720}
 									className="object-cover aspect-video rounded-lg pointer-events-none scale-145"
 								/>
-								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-yellow transition-colors">
 									<CalendarIcon className="inline mr-2 mb-1" weight="duotone" />
 									Content calendar
 								</h3>
@@ -218,7 +218,7 @@ export default function BluprintCreativePage() {
 								>
 									<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
 										Powered by{" "}
-										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
+										<span className="text-yellow/75 font-semibold group-hover/poweredBy:text-yellow transition-colors group-hover/poweredBy:underline">
 											@fullcalendar/react
 										</span>
 										<ArrowUpRightIcon className="inline ml-1" weight="bold" />
@@ -227,7 +227,7 @@ export default function BluprintCreativePage() {
 							</div>
 						</AnimationWrapper>
 						<AnimationWrapper whenInView>
-							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-yellow/25 hover:border-t-yellow/50 transition-colors dual-shadow-dark">
 								<div className="absolute top-2 right-2 lg:top-4 lg:right-4">
 									<IdeaCatalogExpanded />
 								</div>
@@ -238,7 +238,7 @@ export default function BluprintCreativePage() {
 									height={720}
 									className="object-cover aspect-video rounded-lg pointer-events-none scale-120"
 								/>
-								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-yellow transition-colors">
 									<LightbulbFilamentIcon className="inline mr-2 mb-1" weight="duotone" />
 									Idea catalog
 								</h3>
@@ -253,7 +253,7 @@ export default function BluprintCreativePage() {
 							</div>
 						</AnimationWrapper>
 						<AnimationWrapper whenInView>
-							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-yellow/25 hover:border-t-yellow/50 transition-colors dual-shadow-dark">
 								<div className="absolute lg:top-4 lg:right-4 top-2 right-2">
 									<IdeaEditorExpanded />
 								</div>
@@ -264,7 +264,7 @@ export default function BluprintCreativePage() {
 									height={1440}
 									className="object-contain aspect-video rounded-lg pointer-events-none scale-120 -translate-y-3"
 								/>
-								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-yellow transition-colors">
 									<ClipboardTextIcon className="inline mr-2 mb-1" weight="duotone" />
 									Custom fields
 								</h3>
@@ -276,7 +276,7 @@ export default function BluprintCreativePage() {
 								<Link href="https://www.radix-ui.com/" target="_blank" rel="noopener noreferrer">
 									<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
 										With help from{" "}
-										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
+										<span className="text-yellow/75 font-semibold group-hover/poweredBy:text-yellow transition-colors group-hover/poweredBy:underline">
 											@radix-ui
 										</span>
 										<ArrowUpRightIcon className="inline ml-1" weight="bold" />
@@ -285,7 +285,7 @@ export default function BluprintCreativePage() {
 							</div>
 						</AnimationWrapper>
 						<AnimationWrapper whenInView>
-							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-red/25 hover:border-t-red/50 transition-colors dual-shadow-dark">
+							<div className="relative group flex flex-col gap-4 rounded-2xl p-6 bg-gradient-to-b from-foreground/17 to-foreground/5 to-2% border border-foreground/10 border-t-foreground/30 hover:border-yellow/25 hover:border-t-yellow/50 transition-colors dual-shadow-dark">
 								<div className="absolute lg:top-4 lg:right-4 top-2 right-2">
 									<ScriptExpanded />
 								</div>
@@ -296,7 +296,7 @@ export default function BluprintCreativePage() {
 									height={1440}
 									className="object-contain aspect-video rounded-lg pointer-events-none scale-135"
 								/>
-								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-red transition-colors">
+								<h3 className="text-xl lg:text-2xl font-semibold font-sans text-foreground group-hover:text-yellow transition-colors">
 									<ScrollIcon className="inline mr-2 mb-1" weight="duotone" />
 									WYSIWYG rich script editor
 								</h3>
@@ -313,7 +313,7 @@ export default function BluprintCreativePage() {
 								>
 									<p className="group/poweredBy text-sm font-light text-foreground/50 hover:text-foreground transition-colors">
 										Powered by{" "}
-										<span className="text-red/75 font-semibold group-hover/poweredBy:text-red transition-colors group-hover/poweredBy:underline">
+										<span className="text-yellow/75 font-semibold group-hover/poweredBy:text-yellow transition-colors group-hover/poweredBy:underline">
 											@tiptap/simple-editor
 										</span>
 										<ArrowUpRightIcon className="inline ml-1" weight="bold" />

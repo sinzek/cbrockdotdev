@@ -1,19 +1,18 @@
 import { Tabs } from "@/components/tabs";
 import type { Metadata } from "next";
-import { Metal_Mania, Noto_Serif, Nunito } from "next/font/google";
+import { Noto_Serif, Oswald, Roboto } from "next/font/google";
 import { Providers } from "../providers";
+import { CoolBackgroundScript } from "./cool-background/cool-background-script";
 import "./globals.css";
 
-const nunito = Nunito({
-	variable: "--font-nunito-sans",
+const roboto = Roboto({
+	variable: "--font-roboto",
 	subsets: ["latin"],
 });
 
-const metalMania = Metal_Mania({
-	variable: "--font-metal-mania",
+const oswald = Oswald({
+	variable: "--font-oswald",
 	subsets: ["latin"],
-	weight: "400",
-	display: "swap",
 });
 
 const notoSerif = Noto_Serif({
@@ -92,8 +91,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={` ${nunito.variable} ${metalMania.variable} ${notoSerif.variable} antialiased overflow-x-hidden`}
+				className={` ${roboto.variable} ${oswald.variable} ${notoSerif.variable} antialiased overflow-x-hidden bg-background`}
 			>
+				<CoolBackgroundScript />
+				<div id="cool-bg" className="fixed top-0 left-0 w-full h-full -z-10 transition-opacity duration-1000" />
 				<Providers>
 					<div className="w-screen h-screen gap-4">
 						<div className="flex flex-col items-center justify-start w-full h-full mx-auto">

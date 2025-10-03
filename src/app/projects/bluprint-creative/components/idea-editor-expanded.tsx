@@ -46,45 +46,45 @@ export function IdeaEditorExpanded() {
 						<p>The overview section has the idea&apos;s primary fields:</p>
 						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
-								<strong className="font-bold text-red">Title:</strong> The title of the idea, which is
-								used as the video&apos;s title as well as how it is identified in the app.
+								<strong className="font-bold text-yellow">Title:</strong> The title of the idea, which
+								is used as the video&apos;s title as well as how it is identified in the app.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Description:</strong> The description of the
+								<strong className="font-bold text-yellow">Description:</strong> The description of the
 								idea, which can be used in a bunch of different ways. I&apos;ve found that users often
 								use this to write out some rough notes, but it can also be used as the literal YouTube
 								description or bio for the video when it is published.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Category:</strong> The category or folder that
+								<strong className="font-bold text-yellow">Category:</strong> The category or folder that
 								the idea is a part of. This can be used to group ideas together based on a specific
 								theme, topic, or type of content. It can also be used to filter ideas in the idea
 								catalog. This field supports as many categories as a user might want.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Status:</strong> Much like with categories,
+								<strong className="font-bold text-yellow">Status:</strong> Much like with categories,
 								multiple statuses can be added to an idea. This is meant to be used to track the
 								progress of an idea as it is developed / worked on. For example, an idea might start as
 								&apos;Planning&apos; or &apos;Draft&apos;, then later move to &apos;Filming&apos; or
 								&apos;Scripting&apos;. This field can also be used to filter ideas in the idea catalog.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Filming date(s):</strong> The filming date(s) of
-								the idea. This field is explained in depth in the content calendar popup in the Features
-								section.
+								<strong className="font-bold text-yellow">Filming date(s):</strong> The filming date(s)
+								of the idea. This field is explained in depth in the content calendar popup in the
+								Features section.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Release date:</strong> The release or publishing
-								date of the idea, which includes a user&apos;s local time zone. This field is also
-								explained in depth in the content calendar popup in the Features section.
+								<strong className="font-bold text-yellow">Release date:</strong> The release or
+								publishing date of the idea, which includes a user&apos;s local time zone. This field is
+								also explained in depth in the content calendar popup in the Features section.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Release platforms:</strong> The platforms that
+								<strong className="font-bold text-yellow">Release platforms:</strong> The platforms that
 								the idea are planned to be released or published onto. As of right now, the list
 								includes all major social media platforms, but the list grows with user feedback.
 							</li>
 							<li>
-								<strong className="font-bold text-red">Show release platform on calendar?:</strong> A
+								<strong className="font-bold text-yellow">Show release platform on calendar?:</strong> A
 								toggle that determines whether or not the release platform&apos;s icon is shown on the
 								release date event in the content calendar. This helps users visually distinguish
 								between different calendar events at a glance. When more than one platform is selected,
@@ -108,13 +108,14 @@ export function IdeaEditorExpanded() {
 						</p>
 						<ul className="list-disc pl-6 space-y-2">
 							<li>
-								<strong className="font-bold text-red">Fullscreen:</strong> Preview the thumbnail in
+								<strong className="font-bold text-yellow">Fullscreen:</strong> Preview the thumbnail in
 								full screen mode (includes image dimensions).
 							</li>
 							<li>
-								<strong className="font-bold text-red">YouTube Preview:</strong> Preview the thumbnail
-								on a replica of the YouTube homepage, which includes a video title and description. This
-								is useful for seeing how the thumbnail will look in the context of a YouTube video.
+								<strong className="font-bold text-yellow">YouTube Preview:</strong> Preview the
+								thumbnail on a replica of the YouTube homepage, which includes a video title and
+								description. This is useful for seeing how the thumbnail will look in the context of a
+								YouTube video.
 							</li>
 							<Image
 								src="/bpc/youtubePreview-light.png"
@@ -124,7 +125,7 @@ export function IdeaEditorExpanded() {
 								className="w-full lg:max-w-[560px] mt-2 rounded-md"
 							/>
 							<li>
-								<strong className="font-bold text-red">Share:</strong> Copy a shareable link to the
+								<strong className="font-bold text-yellow">Share:</strong> Copy a shareable link to the
 								thumbnail without the hassle of downloading it first.
 							</li>
 						</ul>

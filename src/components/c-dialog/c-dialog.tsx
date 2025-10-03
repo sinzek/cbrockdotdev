@@ -8,9 +8,7 @@ type cDialogContextType = {
 	onOpenChange?: (open: boolean) => void;
 };
 
-export const cDialogContext = React.createContext<
-	cDialogContextType | undefined
->(undefined);
+export const cDialogContext = React.createContext<cDialogContextType | undefined>(undefined);
 
 interface CDialogOptions {
 	open?: boolean;
@@ -25,14 +23,10 @@ export function CDialog({ children, open, onOpenChange }: CDialogOptions) {
 		setIsOpen(isItOpen);
 		onOpenChange?.(isItOpen);
 	};
-	// I think this is better than the useEffect approach tbh
+	// i think this is better than the useEffect approach tbh
 
 	return (
-		<cDialogContext.Provider
-			value={{ isOpen, setIsOpen: setIsOpenCallback }}
-		>
-			{children}
-		</cDialogContext.Provider>
+		<cDialogContext.Provider value={{ isOpen, setIsOpen: setIsOpenCallback }}>{children}</cDialogContext.Provider>
 	);
 }
 

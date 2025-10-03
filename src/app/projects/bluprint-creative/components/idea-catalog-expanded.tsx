@@ -38,7 +38,7 @@ export function IdeaCatalogExpanded() {
 						</p>
 						<ul className="list-disc pl-4.5 lg:pl-6 space-y-2">
 							<li>
-								<strong className="text-red font-bold">Filtering:</strong> Ideas can be filtered by
+								<strong className="text-yellow font-bold">Filtering:</strong> Ideas can be filtered by
 								their status, category, whether they are marked as archived, and whether the title
 								includes the current search term entered into the search bar. These filters can be
 								combined to narrow down the list of displayed ideas.
@@ -54,13 +54,13 @@ export function IdeaCatalogExpanded() {
 								/>
 							</li>
 							<li>
-								<strong className="text-red font-bold">Sorting:</strong> Ideas can be sorted by the date
-								they were last updated (by default), the date they were created, or by their title, all
-								in both ascending and descending order. Combined with filters, this allows users to
+								<strong className="text-yellow font-bold">Sorting:</strong> Ideas can be sorted by the
+								date they were last updated (by default), the date they were created, or by their title,
+								all in both ascending and descending order. Combined with filters, this allows users to
 								quickly find the ideas they are looking for.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Bulk actions:</strong> Multiple ideas can be
+								<strong className="text-yellow font-bold">Bulk actions:</strong> Multiple ideas can be
 								selected at once, and bulk actions can be performed on them. These include adding a
 								specified category or status, archiving, or deleting them.
 								<iframe
@@ -75,14 +75,14 @@ export function IdeaCatalogExpanded() {
 								/>
 							</li>
 							<li>
-								<strong className="text-red font-bold">Categories:</strong> Categories are displayed at
-								the top of the catalog, and selecting one will show only the ideas within that category.
-								This allows users to quickly find ideas related to a specific topic or theme.
+								<strong className="text-yellow font-bold">Categories:</strong> Categories are displayed
+								at the top of the catalog, and selecting one will show only the ideas within that
+								category. This allows users to quickly find ideas related to a specific topic or theme.
 							</li>
 							<li>
-								<strong className="text-red font-bold">Quick-edit:</strong> When you hover over an idea
-								in the grid view, three dots will appear on the top right corner. Clicking on these dots
-								will open a quick-edit menu of of the idea&apos;s attributes that are changed most
+								<strong className="text-yellow font-bold">Quick-edit:</strong> When you hover over an
+								idea in the grid view, three dots will appear on the top right corner. Clicking on these
+								dots will open a quick-edit menu of of the idea&apos;s attributes that are changed most
 								frequently (according to user/client feedback). At the top right of the quick edit menu,
 								there is a button to open the full idea as well as one to pin the idea to the dashboard.
 								<Image
@@ -94,7 +94,7 @@ export function IdeaCatalogExpanded() {
 								/>
 							</li>
 							<li>
-								<strong className="text-red font-bold">Pinning:</strong> Ideas can be pinned to the
+								<strong className="text-yellow font-bold">Pinning:</strong> Ideas can be pinned to the
 								&quot;Pinned ideas&quot; section of the dashboard for quick access and easy separation.
 							</li>
 						</ul>

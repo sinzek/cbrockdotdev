@@ -7,39 +7,44 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BriefcaseIcon } from "@phosphor-icons/react/dist/ssr/Briefcase";
 
-export const links = [
+export const mainLinks = [
 	{
-		name: "Projects",
+		name: "projects",
 		href: "/projects",
 		icon: BriefcaseIcon,
+		externalLink: false,
 	},
 
 	{
-		name: "About Me",
+		name: "about me",
 		href: "/about-me",
 		icon: PersonIcon,
+		externalLink: false,
 	},
+];
+
+export const externalLinks = [
 	{
-		name: "Resume",
+		name: "resume",
 		href: "/chase-brock-resume-2025.pdf",
 		icon: ReadCvLogoIcon,
 		externalLink: true,
 	},
 	{
-		name: "GitHub",
+		name: "github",
 		href: "https://github.com/sinzek",
 		icon: GithubLogoIcon,
 		externalLink: true,
 	},
 	{
-		name: "LinkedIn",
+		name: "linkedIn",
 		href: "https://www.linkedin.com/in/chasepbrock",
 		icon: LinkedinLogoIcon,
 		externalLink: true,
 	},
 
 	{
-		name: "Email",
+		name: "email",
 		href: "mailto:chase.p.brock@gmail.com",
 		icon: EnvelopeSimpleIcon,
 		externalLink: true,
@@ -48,67 +53,67 @@ export const links = [
 
 export const technologies = [
 	{
-		name: "Git",
+		name: "git",
 		icon: "git",
 		url: "https://git-scm.com/",
 	},
 	{
-		name: "JavaScript",
+		name: "javascript",
 		icon: "js",
 		url: "https://www.javascript.com/",
 	},
 	{
-		name: "TypeScript",
+		name: "typescript",
 		icon: "typescript",
 		url: "https://www.typescriptlang.org/",
 	},
 	{
-		name: "HTML",
+		name: "html",
 		icon: "html5",
 		url: "https://www.w3.org/html/",
 	},
 	{
-		name: "CSS",
+		name: "css",
 		icon: "css3",
 		url: "https://www.w3.org/Style/CSS/",
 	},
 	{
-		name: "React",
+		name: "react",
 		icon: "react",
 		url: "https://react.dev/",
 	},
 	{
-		name: "NextJS",
+		name: "nextjs",
 		icon: "nextjs2",
 		url: "https://nextjs.org/",
 	},
 	{
-		name: "NodeJS",
+		name: "nodejs",
 		icon: "nodejs",
 		url: "https://nodejs.org/",
 	},
 	{
-		name: "WordPress",
+		name: "wordpress",
 		icon: "wordpress",
 		url: "https://wordpress.org/",
 	},
 	{
-		name: "Tailwind CSS",
+		name: "tailwind css",
 		icon: "tailwindcss",
 		url: "https://tailwindcss.com/",
 	},
 	{
-		name: "PostgreSQL",
+		name: "postgresql",
 		icon: "postgresql",
 		url: "https://www.postgresql.org/",
 	},
 	{
-		name: "Supabase",
+		name: "supabase",
 		icon: "supabase",
 		url: "https://supabase.com/",
 	},
 	{
-		name: "MongoDB",
+		name: "mongodb",
 		icon: "mongodb",
 		url: "https://www.mongodb.com/",
 	},

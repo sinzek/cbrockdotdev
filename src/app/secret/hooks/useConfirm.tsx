@@ -1,12 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { createPortal } from "react-dom";
@@ -22,9 +17,7 @@ export type ConfirmOptions = {
 export function useConfirm() {
 	const [isOpen, setIsOpen] = React.useState(false);
 	const [options, setOptions] = React.useState<ConfirmOptions | null>(null);
-	const [resolver, setResolver] = React.useState<(result: boolean) => void>(
-		() => () => {}
-	);
+	const [resolver, setResolver] = React.useState<(result: boolean) => void>(() => () => {});
 	const [mounted, setMounted] = React.useState(false);
 
 	React.useEffect(() => {
@@ -62,9 +55,7 @@ export function useConfirm() {
 					<DialogTitle
 						className={cn(
 							`text-2xl font-header font-semibold`,
-							options?.variant === "danger"
-								? "text-red"
-								: "text-foreground"
+							options?.variant === "danger" ? "text-yellow" : "text-foreground"
 						)}
 					>
 						{options?.title}
@@ -74,14 +65,7 @@ export function useConfirm() {
 					</DialogDescription>
 					<div className="flex flex-row justify-end items-center gap-2">
 						<Button onClick={handleCancel}>Cancel</Button>
-						<Button
-							variant={
-								options?.variant === "danger"
-									? "danger"
-									: "confirm"
-							}
-							onClick={handleConfirm}
-						>
+						<Button variant={options?.variant === "danger" ? "danger" : "confirm"} onClick={handleConfirm}>
 							Confirm
 						</Button>
 					</div>
@@ -90,9 +74,7 @@ export function useConfirm() {
 		</Dialog>
 	);
 
-	const ConfirmDialog = mounted
-		? createPortal(dialogContent, document.body)
-		: null;
+	const ConfirmDialog = mounted ? createPortal(dialogContent, document.body) : null;
 
 	return { confirm, ConfirmDialog };
 }

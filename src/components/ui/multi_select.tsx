@@ -35,7 +35,7 @@ export function MultiSelect({
 				<button
 					className={cn(
 						"group flex items-center gap-2 px-3 min-h-9 border border-foreground/25 bg-foreground/5 hover:border-foreground text-sm rounded-sm cursor-pointer text-left transition-all disabled:opacity-50 disabled:pointer-events-none",
-						open && "ring-[2px] ring-red/75 border-foreground"
+						open && "ring-[2px] ring-yellow/75 border-foreground"
 					)}
 					disabled={disabled}
 				>
@@ -65,7 +65,7 @@ export function MultiSelect({
 					{filteredOptions.map((option) => (
 						<div
 							key={option}
-							className="flex items-center gap-2 px-2 py-1 hover:bg-red/25 rounded-sm cursor-pointer"
+							className="flex items-center gap-2 px-2 py-1 hover:bg-yellow/25 rounded-sm cursor-pointer"
 							onClick={() => {
 								if (selectedOptions.includes(option)) {
 									onDeselect(option);

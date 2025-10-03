@@ -13,9 +13,7 @@ type ProjectContextType = {
 	deleteProject: (projectSlug: string) => Promise<string>;
 };
 
-export const ProjectContext = React.createContext<
-	ProjectContextType | undefined
->(undefined);
+export const ProjectContext = React.createContext<ProjectContextType | undefined>(undefined);
 
 export function ProjectProvider({ children }: { children: React.ReactNode }) {
 	const {
@@ -28,7 +26,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 		queryFn: async () => {
 			const response = await fetch("/api/db/projects");
 			if (!response.ok) {
-				throw new Error("Failed to fetch projects");
+				throw new Error("failed to fetch projects");
 			}
 
 			const { projects } = await response.json();
@@ -42,7 +40,8 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 		try {
 			await refetch();
 		} catch (error) {
-			console.error("Failed to refetch projects:", error);
+			toast.error("failed to refetch projects");
+			console.error("failed to refetch projects:", error);
 		}
 	}, [refetch]);
 
@@ -56,24 +55,20 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 				body: JSON.stringify({ project: newProject }),
 			});
 
-			console.log("Creating project:", newProject);
+			console.log("creating project:", newProject);
 
 			if (!response.ok) {
-				throw new Error("Failed to create project");
+				throw new Error("failed to create project");
 			}
 
 			const data = await response.json();
 
-			toast.success(
-				`Project with slug ${newProject.slug} created successfully`
-			);
+			toast.success(`project with slug ${newProject.slug} created successfully`);
 			return data.project;
 		},
 		onError: (error) => {
-			console.error("Error creating project:", error);
-			toast.error(
-				"An unexpected error occurred while creating the project"
-			);
+			console.error("error creating project:", error);
+			toast.error("an unexpected error occurred while creating the project");
 		},
 		onSuccess: () => {
 			refetchProjects();
@@ -91,22 +86,18 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 			});
 
 			if (!response.ok) {
-				throw new Error("Failed to update project");
+				throw new Error("failed to update project");
 			}
 
 			const data = await response.json();
 
-			toast.success(
-				`Project with slug ${updatedProject.slug} updated successfully`
-			);
+			toast.success(`project with slug ${updatedProject.slug} updated successfully`);
 
 			return data.project;
 		},
 		onError: (error) => {
-			console.error("Error updating project:", error);
-			toast.error(
-				"An unexpected error occurred while updating the project"
-			);
+			console.error("error updating project:", error);
+			toast.error("an unexpected error occurred while updating the project");
 		},
 		onSuccess: () => {
 			refetchProjects();
@@ -124,20 +115,16 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 			});
 
 			if (!response.ok) {
-				throw new Error("Failed to delete project");
+				throw new Error("failed to delete project");
 			}
 
-			toast.success(
-				`Project with slug ${projectSlug} deleted successfully`
-			);
+			toast.success(`project with slug ${projectSlug} deleted successfully`);
 
 			return projectSlug;
 		},
 		onError: (error) => {
-			console.error("Error deleting project:", error);
-			toast.error(
-				"An unexpected error occurred while deleting the project"
-			);
+			console.error("error deleting project:", error);
+			toast.error("an unexpected error occurred while deleting the project");
 		},
 		onSuccess: () => {
 			refetchProjects();

@@ -34,7 +34,7 @@ export default function Projects({
 								whenInView
 								className="flex"
 							>
-								<div className="group relative flex flex-col w-full rounded-lg overflow-hidden border border-foreground/20 border-t-foreground/40 hover:border-red/50 hover:border-t-red/75 dual-shadow-red-hover transition-all">
+								<div className="group relative flex flex-col w-full rounded-lg overflow-hidden border border-foreground/20 border-t-foreground/40 hover:border-yellow/50 hover:border-t-yellow/75 transition-all">
 									{project.photos.length > 0 ? (
 										<Image
 											src={project.photos[0]}
@@ -44,13 +44,13 @@ export default function Projects({
 											className="object-contain aspect-video border-b border-foreground/10"
 										/>
 									) : (
-										<div className="aspect-video bg-red/50 flex items-center justify-center">
+										<div className="aspect-video bg-yellow/50 flex items-center justify-center">
 											<p className="text-foreground">No image available.</p>
 										</div>
 									)}
 									<div className="h-full bg-gradient-to-b from-foreground/5 to-foreground/10 to-5% px-4 pt-2 pb-16 space-y-2 rounded-b-lg">
 										<div className="w-full flex flex-row items-center justify-between">
-											<h3 className="group-hover:text-red font-header transition-all duration-200 text-2xl">
+											<h3 className="group-hover:text-yellow font-header transition-all duration-200 text-2xl">
 												{project.title}
 											</h3>
 											{project.launchDate && (
@@ -69,7 +69,7 @@ export default function Projects({
 											{project.slug !== "null" && (
 												<Link href={`/projects/${project.slug}`}>
 													<Button variant="default">
-														Read more
+														read more
 														<ArrowsOutIcon />
 													</Button>
 												</Link>
@@ -77,7 +77,7 @@ export default function Projects({
 											{project.link && (
 												<Link href={project.link} target="_blank" rel="noopener noreferrer">
 													<Button variant="confirm" className="font-semibold">
-														Visit site
+														visit site
 														<ArrowUpRightIcon weight="bold" />
 													</Button>
 												</Link>
@@ -95,7 +95,7 @@ export default function Projects({
 					})
 				) : (
 					<div className="col-span-1 lg:col-span-2 text-center">
-						{projectsLoading ? <p>Loading projects...</p> : <p>No projects found.</p>}
+						{projectsLoading ? <p>loading projects...</p> : <p>no projects found :(</p>}
 					</div>
 				)}
 			</div>

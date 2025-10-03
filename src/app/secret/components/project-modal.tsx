@@ -374,7 +374,7 @@ export function ProjectModal({ open, onOpenChange, project, onProjectSaved, trig
 												type="button"
 												onClick={() => handleRemoveExistingPhoto(index)}
 												disabled={uploading}
-												className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
+												className="absolute cursor-pointer -top-1 -right-1 bg-yellow hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
 											>
 												<XIcon weight="bold" />
 											</button>
@@ -411,7 +411,7 @@ export function ProjectModal({ open, onOpenChange, project, onProjectSaved, trig
 														URL.revokeObjectURL(objectUrl);
 													}}
 													disabled={uploading}
-													className="absolute cursor-pointer -top-1 -right-1 bg-red hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
+													className="absolute cursor-pointer -top-1 -right-1 bg-yellow hover:brightness-75 text-foreground rounded-full w-4 h-4 flex items-center justify-center text-xs disabled:opacity-50 disabled:pointer-events-none"
 												>
 													<XIcon weight="bold" />
 												</button>
