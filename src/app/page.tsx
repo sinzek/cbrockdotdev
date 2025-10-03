@@ -3,7 +3,7 @@
 import { AnimationWrapper } from "@/components/animations";
 import { GitHubLink } from "@/components/github-link";
 import { Button } from "@/components/ui/button";
-import { mainLinks } from "@/lib/constants";
+import { externalLinks, mainLinks } from "@/lib/constants";
 import { EyesIcon, SmileyIcon } from "@phosphor-icons/react";
 import { ArrowUpRightIcon, CodeIcon, GraduationCapIcon, HouseLineIcon } from "@phosphor-icons/react/dist/ssr";
 import { useAnimate } from "framer-motion";
@@ -188,7 +188,7 @@ export default function Home() {
 			<div className="z-10">
 				<AnimationWrapper direction="up">
 					<div
-						className="z-10 flex flex-col items-center lg:items-start justify-center bg-background px-3 py-4 lg:p-8 pointer-events-auto rounded-2xl"
+						className="z-10 flex flex-col items-center justify-center bg-background p-6 lg:p-8 pointer-events-auto lg:rounded-2xl"
 						ref={scope}
 					>
 						<div className="flex flex-row items-center gap-3 lg:gap-6 justify-center">
@@ -206,11 +206,11 @@ export default function Home() {
 								/>
 							</div>
 							<div className="flex flex-col justify-center text-left gap-1">
-								<h1 className="text-7xl tracking-tight font-oswald origin-bottom text-yellow -mt-1">
+								<h1 className="text-5xl lg:text-7xl tracking-tight font-oswald origin-bottom text-yellow -mt-1">
 									chase brock
 								</h1>
-								<div className="mt-2 flex flex-row items-center gap-1.5 text-xs lg:text-base font-semibold font-sans test-foregroundspace-nowrap">
-									<span className="bg-blue/75 rounded-sm text-foreground flex flex-row items-center px-1.5">
+								<div className="mt-2 flex flex-row items-center gap-1.5 text-xs lg:text-base font-semibold font-sans test-foreground whitespace-nowrap">
+									<span className="bg-blue/75 rounded-xs lg:rounded-sm text-foreground flex flex-row items-center px-1.5">
 										<CodeIcon
 											weight="regular"
 											size={20}
@@ -218,7 +218,7 @@ export default function Home() {
 										/>
 										<h2>full-stack developer</h2>
 									</span>
-									<span className="bg-blue/75 rounded-sm text-test-foreground flex flex-row items-center px-1.5">
+									<span className="bg-blue/75 rounded-xs lg:rounded-sm text-foreground flex flex-row items-center px-1.5">
 										<GraduationCapIcon
 											weight="regular"
 											size={20}
@@ -227,13 +227,13 @@ export default function Home() {
 										<h2>student</h2>
 									</span>
 								</div>
-								<div className="mt-2 flex flex-row items-center gap-2 text-foreground">
+								<div className="mt-1 lg:mt-2 flex flex-row items-center gap-2 text-foreground">
 									<HouseLineIcon weight="fill" size={16} />
 									<p className="text-sm font-sans font-semibold mt-0.5">HOUSTON, TX</p>
 								</div>
 							</div>
 						</div>
-						<div className="flex flex-row max-w-lg flex-wrap items-center justify-center lg:justify-start gap-2 mt-4 lg:mt-6">
+						<div className="flex flex-row max-w-lg flex-wrap items-center justify-start w-full gap-2 mt-4 lg:mt-6">
 							{[...mainLinks].map((link, index) => {
 								const Icon = link.icon;
 								return (
@@ -242,13 +242,9 @@ export default function Home() {
 										delay={index * 0.1}
 										className="inline-block"
 									>
-										<Link
-											href={link.href}
-											target={link.externalLink ? "_blank" : "_self"}
-											rel={link.externalLink ? "noopener noreferrer" : undefined}
-										>
+										<Link href={link.href}>
 											<Button
-												variant="default"
+												variant="danger"
 												className="dual-shadow-sm-dark"
 												aria-label={link.name}
 												title={link.name}
@@ -267,13 +263,14 @@ export default function Home() {
 									</AnimationWrapper>
 								);
 							})}
+
 							<AnimationWrapper
 								key={`nav-secret`}
 								delay={[...mainLinks].length * 0.1}
 								className="inline-block"
 							>
 								<Button
-									variant="default"
+									variant="danger"
 									className="dual-shadow-sm-dark"
 									onClick={handleSecretClick}
 									title="Secret"
@@ -283,6 +280,31 @@ export default function Home() {
 									secret
 								</Button>
 							</AnimationWrapper>
+						</div>
+						<div className="flex flex-row max-w-lg flex-wrap items-center justify-start w-full gap-2 mt-2 lg:mt-3">
+							{[...externalLinks].map((link, index) => {
+								const Icon = link.icon;
+								return (
+									<AnimationWrapper
+										key={`nav-${link.name}`}
+										delay={index * 0.1}
+										className="inline-block"
+									>
+										<Link href={link.href} target={"_blank"} rel={"noopener noreferrer"}>
+											<Button
+												variant="default"
+												className="dual-shadow-sm-dark"
+												aria-label={link.name}
+												title={link.name}
+											>
+												<Icon weight="fill" size={16} className="inline" />
+												{link.name}
+												<ArrowUpRightIcon weight="regular" size={16} className="inline ml-1" />
+											</Button>
+										</Link>
+									</AnimationWrapper>
+								);
+							})}
 						</div>
 					</div>
 				</AnimationWrapper>
